@@ -1,9 +1,10 @@
 import React from 'react';
-import './App.css';
+
+import HomePage from './pages/HomePage';
 
 const App = () => {
   return (
-    <div>What's the Weather</div>
+    <HomePage />
   );
 }
 
