@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import Spinner from '../../../components/utils/Spinner';
+import Spinner from '../../../components/shared/Spinner';
 
 test('renders passed in message', () => {
   const { getByText } = render(<Spinner message="Loading..." />);
