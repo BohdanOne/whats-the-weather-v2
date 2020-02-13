@@ -1,13 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import Spinner from '../../shared/Spinner';
 
+type GeolocationResponse = {coords: { latitude: number, longitude: number}}
+
 export default () => {
   const [location, setLocation] = useState('');
 
-  // useEffect(() => {
-  //   const foundLocation = findLocation();
-  //   setLocation(foundLocation)
-  // })
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+        success,
+        error => console.log(error)
+      );
+    function success(position: GeolocationResponse) {
+      const lat = position.coords.latitude;
+      const long = position.coords.longitude;
+      setLocation(lat.toString() + long.toString());
+    }
+  })
+
   return (
     <>
       {navigator.geolocation ? displayLocation(location) : notSupported()}
@@ -27,18 +37,4 @@ function displayLocation(location: string) {
   }
 }
 
-// async function findLocation() {
-//   try {
-//     const location: string = await navigator.geolocation.getCurrentPosition(
-//       (position: {coords: { latitude: number, longitude: number}}): Promise<string> => {
-//         const lat = position.coords.latitude;
-//         const long = position.coords.longitude;
-//         return lat.toString() + long.toString();
-//       },
-//       () => notSupported()
-//     ) as string;
-//     return location;
-//   } catch (e) {
-//     console.log(e)
-//   }
-// }
+
