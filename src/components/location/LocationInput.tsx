@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default (props: {onUserInput: Function }) => {
+export default (props: { location: string; onUserInput: Function }) => {
   return (
     <label>
-      Enter desired location:
-      <input type="text" onKeyUp={event => props.onUserInput(event)}/>
+      {props.location ? 'Enter other location' : 'Enter desired location:'}{' '}
+      <input type="text" onKeyUp={event => props.onUserInput(event)} />
     </label>
-  )
+  );
 };

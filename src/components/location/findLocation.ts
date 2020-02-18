@@ -1,8 +1,7 @@
 const API_KEY = process.env.REACT_APP_OPENCAGE_API_KEY;
 const API_URL = 'https://api.opencagedata.com/geocode/v1/';
 
-type geocodeResponse = { results: {formatted: string}[]}
-
+type geocodeResponse = { results: { formatted: string }[] };
 
 export default (lat: string, long: string) => {
   const query = encodeURI(`${lat},${long}`);
