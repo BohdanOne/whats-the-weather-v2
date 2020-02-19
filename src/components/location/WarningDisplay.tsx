@@ -1,7 +1,11 @@
 import React from 'react';
 
-export default (props: {warning: string}) => (
+interface IWarningDisplayProps { warning: string }
+
+const WarningDisplay: React.FC<IWarningDisplayProps> = ({warning}) => (
   <p>
-    {props.warning}
+    {warning}
   </p>
 );
+
+export default WarningDisplay;

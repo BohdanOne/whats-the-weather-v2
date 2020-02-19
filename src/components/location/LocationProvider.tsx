@@ -1,7 +1,7 @@
 import React, { useReducer, ReactElement } from 'react';
 import { locationReducer, IState, IAction, initialState } from './locationReducer';
 
-interface IProps {
+interface ILocationProviderProps {
   children: ReactElement;
 }
 
@@ -12,7 +12,7 @@ interface ILocation {
 
 export const LocationContext = React.createContext<ILocation>({ location: '', dispatch: null });
 
-export const LocationProvider: React.FC<IProps> = ({ children }) => {
+export const LocationProvider: React.FC<ILocationProviderProps> = ({ children }) => {
 
   const [location, dispatchLocation] = useReducer<React.Reducer<IState, IAction>>(locationReducer, initialState);
 

@@ -6,12 +6,17 @@ import decodeLocation from './decodeLocation';
 
 type GeolocationResponse = { coords: { latitude: number; longitude: number } };
 
-export default (props: {location: string, dispatch: Function | null}) => {
+interface ILocationProps {
+  location: string;
+  dispatch: Function | null;
+}
+
+const Location: React.FC<ILocationProps> = ({location, dispatch}) => {
   const [warning, setWarning] = useState('');
   const geolocationSupported = navigator && navigator.geolocation;
 
   useEffect(() => {
-    if (geolocationSupported && !props.location) {
+    if (geolocationSupported && !location) {
       navigator.geolocation.getCurrentPosition(success, error => {
         if (error.code === 1) {
           setWarning(
@@ -26,29 +31,33 @@ export default (props: {location: string, dispatch: Function | null}) => {
       const lat = position.coords.latitude.toString();
       const long = position.coords.longitude.toString();
       const location = (await decodeLocation(lat, long)) as string;
-      props.dispatch && props.dispatch({ type: 'SET_LOCATION', payload: location });
+      dispatch &&
+        dispatch({ type: 'SET_LOCATION', payload: location });
     }
   });
 
   useEffect(() => {
-    if (!props.location && !geolocationSupported) {
+    if (!location && !geolocationSupported) {
       setWarning(
         'Geolocation is not supported by your browser. Please provide desired location manually.'
       );
     }
-  }, [props.location, geolocationSupported]);
+  }, [location, geolocationSupported]);
 
   function handleUserInput(event: Event) {
     event.preventDefault();
     const input = event.target as HTMLInputElement;
-    props.dispatch && props.dispatch({ type: 'SET_LOCATION', payload: input.value });
+    dispatch &&
+      dispatch({ type: 'SET_LOCATION', payload: input.value });
   }
 
   return (
     <>
-      <LocationDisplay location={props.location} />
+      <LocationDisplay location={location} />
       {warning && <WarningDisplay warning={warning} />}
       <LocationInput onUserInput={handleUserInput} />
     </>
   );
 };
+
+export default Location;

@@ -1,10 +1,16 @@
 import React from 'react';
 
-export default (props: {onUserInput: Function }) => {
+interface ILocationInputProps {
+  onUserInput: Function;
+}
+
+const LocationInput: React.FC<ILocationInputProps> = ({onUserInput}) => {
   return (
     <label>
       Enter desired location:
-      <input type="text" onKeyUp={event => props.onUserInput(event)}/>
+      <input type="text" onKeyUp={event => onUserInput(event)}/>
     </label>
   )
 };
+
+export default LocationInput;
