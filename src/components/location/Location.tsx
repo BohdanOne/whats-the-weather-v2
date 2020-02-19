@@ -44,18 +44,16 @@ const Location: React.FC<ILocationProps> = ({location, dispatch}) => {
     }
   }, [location, geolocationSupported]);
 
-  function handleUserInput(event: Event) {
-    event.preventDefault();
-    const input = event.target as HTMLInputElement;
+  function handleLocationSearch(location: string) {
     dispatch &&
-      dispatch({ type: 'SET_LOCATION', payload: input.value });
+      dispatch({ type: 'SET_LOCATION', payload: location });
   }
 
   return (
     <>
       <LocationDisplay location={location} />
       {warning && <WarningDisplay warning={warning} />}
-      <LocationInput onUserInput={handleUserInput} />
+      <LocationInput onLocationSearch={handleLocationSearch} location={location} />
     </>
   );
 };

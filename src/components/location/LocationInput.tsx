@@ -1,15 +1,31 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 interface ILocationInputProps {
-  onUserInput: Function;
+  location: string;
+  onLocationSearch: (location: string) => void;
 }
 
-const LocationInput: React.FC<ILocationInputProps> = ({onUserInput}) => {
+const LocationInput: React.FC<ILocationInputProps> = ({location, onLocationSearch}) => {
+  const locationInputRef = useRef<HTMLInputElement>(null);
+
+  const gotLocation = location ? 'other' : 'desired';
+
+  const searchLocation = (event: React.FormEvent) => {
+    event.preventDefault();
+    const location = locationInputRef.current!.value;
+    onLocationSearch(location);
+  }
+
   return (
-    <label>
-      Enter desired location:
-      <input type="text" onKeyUp={event => onUserInput(event)}/>
-    </label>
+    <form onSubmit={searchLocation}>
+      <label htmlFor="locationInput">
+        Enter {gotLocation} location:
+      </label>
+      <input type="text" id="locationInput" ref={locationInputRef} />
+      <button type="submit">search</button>
+    </form>
+
+
   )
 };
 
