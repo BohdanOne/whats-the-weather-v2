@@ -3,7 +3,6 @@ const API_URL = 'https://api.opencagedata.com/geocode/v1/';
 
 type geocodeResponse = { results: {formatted: string}[]}
 
-
 export default (lat: string, long: string) => {
   const query = encodeURI(`${lat},${long}`);
   return fetch(`${API_URL}/json?q=${query}&key=${API_KEY}`)
