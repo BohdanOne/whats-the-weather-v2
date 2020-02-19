@@ -7,13 +7,12 @@ interface ILocationProviderProps {
 
 interface ILocation {
   location: string;
-  dispatch: Function | null;
+  dispatch: React.Dispatch<IAction> | null;
 }
 
 export const LocationContext = React.createContext<ILocation>({ location: '', dispatch: null });
 
 export const LocationProvider: React.FC<ILocationProviderProps> = ({ children }) => {
-
   const [location, dispatchLocation] = useReducer<React.Reducer<IState, IAction>>(locationReducer, initialState);
 
   return (

@@ -2,7 +2,7 @@ import React from 'react';
 
 export interface IState {
   location: string;
-  dispatch: Function | null;
+  dispatch: React.Dispatch<IAction> | null;
 }
 
 export interface IAction {
