@@ -10,30 +10,40 @@ interface ICurrentWeather {
   location: string;
 }
 
-const CurrentWeather: React.FC<ICurrentWeather> = ({location}) => {
+const CurrentWeather: React.FC<ICurrentWeather> = ({ location }) => {
   const [weather, setWeather] = useState();
 
   useEffect(() => {
     if (location) {
-      axios.get(`${BASE_URL}?q=${location}&units=metric&appid=${API_KEY}`)
+      axios
+        .get(`${BASE_URL}?q=${location}&units=metric&appid=${API_KEY}`)
         .then(response => response.data)
         .then((data: TCurrentWeather) => {
-          setWeather(data)
+          setWeather(data);
         })
         .catch(e => console.log(e));
     }
   }, [location]);
 
   if (!location) {
-    return <Spinner message='Waiting for location' />
+    return <Spinner message="Waiting for location" />;
   }
   if (location && !weather) {
-    return <Spinner message={`Checking weather in ${location}`} />
+    return <Spinner message={`Checking weather in ${location}`} />;
   }
   if (location && weather) {
-    return <div>Current Weather: {weather.weather[0].description}</div>
+    return (
+      <div>
+        <h2>Current Weather:</h2>
+        <p>{weather.weather[0].description}</p>
+        <img
+          src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
+          alt=""
+        />
+      </div>
+    );
   }
-  return <div>Weather not available</div>
+  return <div>Weather not available</div>;
 };
 
 export default CurrentWeather;

@@ -2,6 +2,7 @@ export type TCurrentWeather = {
   weather: {
     main: string;
     description: string;
+    icon: string;
   }[];
   main: {
     temp: number;
