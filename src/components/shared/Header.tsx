@@ -1,7 +1,9 @@
 import React from 'react';
 
-export default (props: { title: string}) => (
+const Header: React.FC<{ title: string}> = ({ title }) => (
   <header>
-    <h1>{ props.title }</h1>
+    <h1>{ title }</h1>
   </header>
 );
+
+export default Header;

@@ -1,12 +1,17 @@
 import React from 'react';
 import { LocationProvider } from './location/LocationProvider';
+import { LanguageProvider } from './language/LanguageProvider';
 import HomePage from './pages/home/HomePage';
 
 const App = () => {
   return (
-    <LocationProvider>
-      <HomePage />
-    </LocationProvider>
+    <>
+      <LanguageProvider>
+        <LocationProvider>
+          <HomePage />
+        </LocationProvider>
+      </LanguageProvider>
+    </>
   );
 }
 

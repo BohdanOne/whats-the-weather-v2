@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { TCurrentWeather } from './currentWeather.model';
 import Spinner from '../shared/Spinner';
+import { LanguageContext } from '../language/LanguageProvider';
+import content from './currentWeatherContent';
 
 const API_KEY = process.env.REACT_APP_OPENWEATHERMAP_API_KEY;
 const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather';
@@ -12,29 +14,32 @@ interface ICurrentWeather {
 
 const CurrentWeather: React.FC<ICurrentWeather> = ({ location }) => {
   const [weather, setWeather] = useState();
+  const language = useContext(LanguageContext);
+
+  const {title, error, spinnerMessageNoLocation, spinnerMessageNoWeather } = language === 'en' ? content[0]: content[1];
 
   useEffect(() => {
     if (location) {
       axios
-        .get(`${BASE_URL}?q=${location}&units=metric&appid=${API_KEY}`)
+        .get(`${BASE_URL}?q=${location}&units=metric&lang=${language}&appid=${API_KEY}`)
         .then(response => response.data)
         .then((data: TCurrentWeather) => {
           setWeather(data);
         })
         .catch(e => console.log(e));
     }
-  }, [location]);
+  });
 
   if (!location) {
-    return <Spinner message="Waiting for location" />;
+    return <Spinner message={spinnerMessageNoLocation} />;
   }
   if (location && !weather) {
-    return <Spinner message={`Checking weather in ${location}`} />;
+    return <Spinner message={`${spinnerMessageNoWeather}${location}...`} />;
   }
   if (location && weather) {
     return (
       <div>
-        <h2>Current Weather:</h2>
+        <h2>{title}</h2>
         <p>{weather.weather[0].description}</p>
         <img
           src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
@@ -43,7 +48,7 @@ const CurrentWeather: React.FC<ICurrentWeather> = ({ location }) => {
       </div>
     );
   }
-  return <div>Weather not available</div>;
+  return <div>{error}</div>;
 };
 
 export default CurrentWeather;

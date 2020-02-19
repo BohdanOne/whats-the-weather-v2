@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Spinner from '../shared/Spinner';
+import content from './locationDisplayContent';
+import { LanguageContext } from '../language/LanguageProvider';
 
-interface ILocationDisplayProps {
-  location: string;
-}
 
-const LocationDisplay: React.FC<ILocationDisplayProps> = ({ location }) => {
+const LocationDisplay: React.FC<{location: string}> = ({ location }) => {
+  const language = useContext(LanguageContext);
+  const {title, spinnerMessage} = language === 'en' ? content[0]: content[1];
+
   return (
     <>
-      <h2>Check weather for:</h2>
+      <h2>{title}</h2>
       {location ? (
         <p>{location}</p>
       ) : (
-        <Spinner message="Waiting for your location..." />
+        <Spinner message={spinnerMessage} />
       )}
     </>
   );

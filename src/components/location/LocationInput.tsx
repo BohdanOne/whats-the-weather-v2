@@ -1,14 +1,16 @@
-import React, { useRef } from 'react';
+import React, { useRef, useContext } from 'react';
+import content from './locationInputContent';
+import { LanguageContext } from '../language/LanguageProvider';
+
 
 interface ILocationInputProps {
-  location: string;
   onLocationSearch: (location: string) => void;
 }
 
-const LocationInput: React.FC<ILocationInputProps> = ({location, onLocationSearch}) => {
+const LocationInput: React.FC<ILocationInputProps> = ({onLocationSearch}) => {
   const locationInputRef = useRef<HTMLInputElement>(null);
-
-  const gotLocation = location ? 'other' : 'desired';
+  const language = useContext(LanguageContext);
+  const {label, buttonText} = language === 'en' ? content[0]: content[1];
 
   const searchLocation = (event: React.FormEvent) => {
     event.preventDefault();
@@ -19,10 +21,10 @@ const LocationInput: React.FC<ILocationInputProps> = ({location, onLocationSearc
   return (
     <form onSubmit={searchLocation}>
       <label htmlFor="locationInput">
-        Enter {gotLocation} location:
+        {label}
       </label>
       <input type="text" id="locationInput" ref={locationInputRef} />
-      <button type="submit">search</button>
+      <button type="submit">{buttonText}</button>
     </form>
 
 

@@ -7,8 +7,8 @@ export type TCurrentWeather = {
   main: {
     temp: number;
     feels_like: number;
-    temp_min: number;
-    temp_max: number;
+    temp_min?: number;
+    temp_max?: number;
     pressure: number; // hPa
     humidity: number; // %
   };

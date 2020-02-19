@@ -53,7 +53,7 @@ const Location: React.FC<ILocationProps> = ({location, dispatch}) => {
     <>
       <LocationDisplay location={location} />
       {warning && <WarningDisplay warning={warning} />}
-      <LocationInput onLocationSearch={handleLocationSearch} location={location} />
+      <LocationInput onLocationSearch={handleLocationSearch} />
     </>
   );
 };
