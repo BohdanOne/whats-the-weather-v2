@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8080/locations';
+const API_URL = 'https://wtw-api.herokuapp.com/locations';
 
 export default (lat: string, long: string) => {
   return axios.post(API_URL, { coords: { lat: lat, long:long } }).then(response => {
