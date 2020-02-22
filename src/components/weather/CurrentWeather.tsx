@@ -1,19 +1,19 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import { TCurrentWeather } from './currentWeather.model';
+import { ICurrentWeather } from './currentWeather.model';
 import Spinner from '../shared/Spinner';
 import { LanguageContext } from '../language/LanguageProvider';
 import content from './currentWeatherContent';
 
-const API_KEY = process.env.REACT_APP_OPENWEATHERMAP_API_KEY;
-const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather';
+// const API_URL = 'https://wtw-api.herokuapp.com/weather/current';
+const API_URL = 'http://localhost:8080/weather/current';
 
-interface ICurrentWeather {
+interface ILocation {
   location: string;
 }
 
-const CurrentWeather: React.FC<ICurrentWeather> = ({ location }) => {
-  const [weather, setWeather] = useState();
+const CurrentWeather: React.FC<ILocation> = ({ location }) => {
+  const [weather, setWeather] = useState<ICurrentWeather>();
   const language = useContext(LanguageContext);
 
   const {title, error, spinnerMessageNoLocation, spinnerMessageNoWeather } = language === 'en' ? content[0]: content[1];
@@ -21,10 +21,10 @@ const CurrentWeather: React.FC<ICurrentWeather> = ({ location }) => {
   useEffect(() => {
     if (location) {
       axios
-        .get(`${BASE_URL}?q=${location}&units=metric&lang=${language}&appid=${API_KEY}`)
+        .post(API_URL, { location, language})
         .then(response => response.data)
-        .then((data: TCurrentWeather) => {
-          setWeather(data);
+        .then((data: ICurrentWeather) => {
+          setWeather(data)
         })
         .catch(e => console.log(e));
     }
@@ -39,7 +39,7 @@ const CurrentWeather: React.FC<ICurrentWeather> = ({ location }) => {
   if (location && weather) {
     return (
       <div>
-        <h2>{title}</h2>
+        <h2>{title} {weather.name}</h2>
         <p>{weather.weather[0].description}</p>
         <img
           src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}

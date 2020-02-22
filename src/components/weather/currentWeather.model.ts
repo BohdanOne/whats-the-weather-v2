@@ -1,4 +1,5 @@
-export type TCurrentWeather = {
+export interface ICurrentWeather {
+  name: string;
   weather: {
     main: string;
     description: string;
