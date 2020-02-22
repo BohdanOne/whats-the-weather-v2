@@ -21,14 +21,18 @@ const CurrentWeather: React.FC<ILocation> = ({ location }) => {
   useEffect(() => {
     if (location) {
       axios
-        .post(API_URL, { location, language})
+        .post(API_URL, {location, language})
         .then(response => response.data)
         .then((data: ICurrentWeather) => {
+
           setWeather(data)
+
         })
-        .catch(e => console.log(e));
+        .catch(e => {
+          console.log(e)
+        });
     }
-  });
+  }, [location, language]);
 
   if (!location) {
     return <Spinner message={spinnerMessageNoLocation} />;
