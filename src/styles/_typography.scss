@@ -7,6 +7,7 @@ html {
 body {
   @include font(var(--fs), var(--fw-light));
   line-height: 1.4;
+  letter-spacing: .06rem;
   font-family: 'Josefin Sans', sans-serif;
   color: var(--color-main);
 }
@@ -14,14 +15,20 @@ body {
 h1 {
   @include font(var(--fs-xl), var(--fw-thin));
   text-align: center;
+  padding: 2rem 0;
 }
 
 h2 {
   @include font(var(--fs), var(--fw-light));
   text-align: left;
+  color: var(--color-accent);
   padding-bottom: 1rem;
   span {
+    display: block;
+    text-align: center;
+    color: var(--color-main);
     font-weight: var(--fw-regular);
+    padding-top: 1rem;
   }
 }
 
@@ -31,6 +38,11 @@ h2 {
 
 @media (min-width: 768px) {
   html { font-size: 16px;}
+  h2 {
+    span {
+      display: inline-block;
+    }
+  }
 }
 
 @media (min-width: 1024px) {

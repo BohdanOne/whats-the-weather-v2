@@ -1,0 +1,44 @@
+.CurrentWeatherDetails {
+
+  &_basic {
+    @include center();
+    padding-bottom: 1rem;
+  }
+
+  &_icon {
+    @include center();
+      background-color: var(--color-main-lighter);
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-right: 1rem;
+  }
+
+  &_details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    margin-left: 1rem;
+  }
+
+  &_desc {
+    font-weight: var(--fw-regular);
+    text-align: center;
+  }
+
+  &_temp {
+    font-size: var(--fs-l);
+  }
+
+  &_extended {
+    list-style: none;
+    padding: 1rem 0;
+    text-align: center;
+
+    li {
+      padding: .5rem 0;
+    }
+  }
+}

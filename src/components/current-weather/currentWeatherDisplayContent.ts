@@ -1,9 +1,9 @@
 export default [
   {
-    rain: 'Rain',
-    snow: 'Snow',
-    moreDetails: 'SEE MORE DETAILS',
-    lessDetails: 'HIDE DETAILS',
+    rain: 'rain',
+    snow: 'snow',
+    moreDetails: 'see more details',
+    lessDetails: 'hide details',
     feelsLike: 'feels like',
     pressure: 'pressure',
     humidity: 'humidity',
@@ -12,10 +12,10 @@ export default [
     clouds: 'clouds'
   },
   {
-    rain: 'Deszcz',
-    snow: 'Śnieg',
-    moreDetails: 'WIĘCEJ INFORMACJI',
-    lessDetails: 'MNIEJ INFORMACJI',
+    rain: 'deszcz',
+    snow: 'śnieg',
+    moreDetails: 'więcej informacji',
+    lessDetails: 'mniej informacji',
     feelsLike: 'odczuwalne',
     pressure: 'ciśnienie',
     humidity: 'wilgotność',

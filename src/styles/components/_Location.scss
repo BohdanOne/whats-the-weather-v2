@@ -4,7 +4,7 @@
   &_warning {
     margin-bottom: 1rem;
   }
-  
+
   .InputForm {
     display: flex;
     flex-direction: column;
@@ -18,6 +18,21 @@
 
     &_input {
       margin-bottom: 1rem;
+    }
+
+    &_button {
+      margin-bottom: 1rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .InputForm {
+      flex-direction: row;
+      justify-content: space-evenly;
+
+      &_label {
+        width: auto;
+      }
     }
   }
 }
