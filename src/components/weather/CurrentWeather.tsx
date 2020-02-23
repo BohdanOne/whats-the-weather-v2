@@ -43,7 +43,7 @@ const CurrentWeather: React.FC<ILocation> = ({ location }) => {
 
   if (location && !weather) return <Spinner message={`${spinnerMessageNoWeather}${location}...`} />;
 
-  if (location && weather) return <CurrentWeatherDetails title={title} weather={weather}/>;
+  if (location && weather) return <CurrentWeatherDetails title={title} weather={weather} language={language}/>;
 
   return <ErrorDisplay message={errorMessage} />;
 };

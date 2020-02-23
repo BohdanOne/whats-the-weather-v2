@@ -1,10 +1,10 @@
 export default [
   {
-    title: 'Check weather for: ',
+    title: 'Location: ',
     spinnerMessage: 'Waiting for your location...'
   },
   {
-    title: 'Sprawdź pogodę w: ',
+    title: 'Lokalizacja: ',
     spinnerMessage: 'Czekam na lokalizację...'
   }
 ];

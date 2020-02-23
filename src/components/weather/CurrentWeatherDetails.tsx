@@ -1,15 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ICurrentWeather } from './currentWeather.model';
+import content from './currentWeatherDisplayContent';
+import windDirection from './windDirection';
 
 interface ICurrentWeatherDetails {
   title: string;
   weather: ICurrentWeather;
+  language: string;
 }
 
 const CurrentWeatherDetails: React.FC<ICurrentWeatherDetails> = ({
   title,
-  weather
+  weather,
+  language
 }) => {
+  const [extendedView, setExtendedView] = useState<boolean>(false);
+
+  const { rain, snow, moreDetails, lessDetails, feelsLike, pressure, humidity, visibility, wind, clouds } =
+    language === 'en' ? content[0] : content[1];
+
   return (
     <div>
       <h2>
@@ -22,10 +31,46 @@ const CurrentWeatherDetails: React.FC<ICurrentWeatherDetails> = ({
         src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
         alt=""
       />
-      <p>{weather.main.temp} °C</p>
-      {weather.rain && <p>Rain: {weather.rain['1h']}mm</p>}
-      {weather.snow && <p>Rain: {weather.snow['1h']}mm</p>}
-      <button>SEE MORE DETAILS</button>
+      <p>{weather.main.temp}°C</p>
+      {weather.rain && (
+        <p>
+          {rain}: {weather.rain['1h']}mm
+        </p>
+      )}
+      {weather.snow && (
+        <p>
+          {snow}: {weather.snow['1h']}mm
+        </p>
+      )}
+      <button
+        onClick={() => {
+          setExtendedView(!extendedView);
+        }}
+      >
+        {extendedView ? lessDetails : moreDetails}
+      </button>
+      {extendedView && (
+        <>
+          <ul>
+            <li>
+              {feelsLike}: {weather.main.feels_like}°C
+            </li>
+            <li>
+              {weather.main.temp_min && (
+                <span>min: {weather.main.temp_min}°C</span>
+              )}
+              {weather.main.temp_max && (
+                <span> max: {weather.main.temp_max}°C</span>
+              )}
+            </li>
+            {weather.main.pressure && <li>{pressure}: {weather.main.pressure}hPa</li>}
+            {weather.main.humidity && <li>{humidity}: {weather.main.humidity}%</li>}
+            {weather.visibility && <li>{visibility}: {weather.visibility}m</li>}
+            {(weather.wind && weather.wind.deg) && <li>{wind}: {weather.wind.speed}m/s {windDirection(weather.wind.deg)}</li>}
+            {weather.clouds && <li>{clouds}: {weather.clouds.all}%</li>}
+          </ul>
+        </>
+      )}
     </div>
   );
 };

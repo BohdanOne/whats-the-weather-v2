@@ -24,7 +24,6 @@ const LanguagePicker: React.FC<ILanguagePickerProps> = ({language, onLanguageCho
             🇵🇱
           </span> Zmień język
         </label>
-
       );
     }
   };

@@ -6,7 +6,7 @@ export default [
     spinnerMessageNoWeather: 'Checking weather in ',
   },
   {
-    title: 'Aktualna pogoda w miejscowości: ',
+    title: 'Aktualna pogoda w: ',
     errorMessage: 'Informacje niedostępne',
     spinnerMessageNoLocation: 'Czekam na lokalizację...',
     spinnerMessageNoWeather: 'Sprawdzam pogodę w '
