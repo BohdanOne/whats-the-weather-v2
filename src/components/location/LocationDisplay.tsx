@@ -3,16 +3,16 @@ import Spinner from '../shared/Spinner';
 import content from './locationDisplayContent';
 import { LanguageContext } from '../language/LanguageProvider';
 
-
-const LocationDisplay: React.FC<{location: string}> = ({ location }) => {
+const LocationDisplay: React.FC<{ location: string }> = ({ location }) => {
   const language = useContext(LanguageContext);
-  const {title, spinnerMessage} = language === 'en' ? content[0]: content[1];
+  const { title, spinnerMessage } = language === 'en' ? content[0] : content[1];
 
   return (
     <>
-      <h2>{title}</h2>
       {location ? (
-        <p>{location}</p>
+        <h2>
+          {title}: <span>{location}</span>
+        </h2>
       ) : (
         <Spinner message={spinnerMessage} />
       )}

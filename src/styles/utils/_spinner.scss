@@ -2,13 +2,14 @@
 .spinner {
   padding: 1rem 1rem 2rem;
   margin: 0 auto;
-  color: orange;
+  color: var(--color-accent);
   text-align: center;
   width: fit-content;
-  background: rgba(255, 255, 255, 0.8);
+  background: transparent;
   border-radius: 1rem;
 
   &__message {
+    color: var(--color-main);
     margin-bottom: 2rem;
   }
 

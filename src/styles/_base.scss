@@ -3,3 +3,21 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  width: 100%;
+  background-color: var(--color-oposite);
+  padding: 10px;
+}
+
+@media (min-width: 340px) {
+  body { padding: 20px; }
+}
+
+@media (min-width: 768px) {
+  body { padding: 40px; }
+}
+
+@media (min-width: 1440px) {
+  body { padding: 100px; }
+}

@@ -31,17 +31,8 @@ const CurrentWeatherDetails: React.FC<ICurrentWeatherDetails> = ({
         src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
         alt=""
       />
-      <p>{weather.main.temp}°C</p>
-      {weather.rain && (
-        <p>
-          {rain}: {weather.rain['1h']}mm
-        </p>
-      )}
-      {weather.snow && (
-        <p>
-          {snow}: {weather.snow['1h']}mm
-        </p>
-      )}
+      <p>{weather.main.temp.toFixed(1)}°C</p>
+
       <button
         onClick={() => {
           setExtendedView(!extendedView);
@@ -53,16 +44,18 @@ const CurrentWeatherDetails: React.FC<ICurrentWeatherDetails> = ({
         <>
           <ul>
             <li>
-              {feelsLike}: {weather.main.feels_like}°C
+              {feelsLike}: {weather.main.feels_like.toFixed(1)}°C
             </li>
             <li>
               {weather.main.temp_min && (
-                <span>min: {weather.main.temp_min}°C</span>
+                <span>min: {weather.main.temp_min.toFixed(1)}°C</span>
               )}
               {weather.main.temp_max && (
-                <span> max: {weather.main.temp_max}°C</span>
+                <span> max: {weather.main.temp_max.toFixed(1)}°C</span>
               )}
             </li>
+            {weather.rain && <li>{rain}: {weather.rain['1h']}mm</li>}
+            {weather.snow && <li>{snow}: {weather.snow['1h']}mm</li>}
             {weather.main.pressure && <li>{pressure}: {weather.main.pressure}hPa</li>}
             {weather.main.humidity && <li>{humidity}: {weather.main.humidity}%</li>}
             {weather.visibility && <li>{visibility}: {weather.visibility}m</li>}

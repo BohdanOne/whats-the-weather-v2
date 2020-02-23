@@ -1,10 +1,10 @@
 export default [
   {
-    title: 'Location: ',
+    title: 'Location',
     spinnerMessage: 'Waiting for your location...'
   },
   {
-    title: 'Lokalizacja: ',
+    title: 'Lokalizacja',
     spinnerMessage: 'Czekam na lokalizację...'
   }
 ];
