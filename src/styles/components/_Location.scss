@@ -1,0 +1,22 @@
+.Location {
+  padding: 25px 0;
+  .InputForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &_label {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    &_input {
+      margin-bottom: 1rem;
+    }
+
+    // &_button {
+    //   width: 100px;
+    // }
+  }
+}

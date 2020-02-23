@@ -8,7 +8,7 @@ const LocationDisplay: React.FC<{ location: string }> = ({ location }) => {
   const { title, spinnerMessage } = language === 'en' ? content[0] : content[1];
 
   return (
-    <>
+    <div className="LocationDisplay">
       {location ? (
         <h2>
           {title}: <span>{location}</span>
@@ -16,7 +16,7 @@ const LocationDisplay: React.FC<{ location: string }> = ({ location }) => {
       ) : (
         <Spinner message={spinnerMessage} />
       )}
-    </>
+    </div>
   );
 };
 

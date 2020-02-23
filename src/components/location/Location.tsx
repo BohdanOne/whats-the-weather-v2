@@ -50,11 +50,11 @@ const Location: React.FC<ILocationProps> = ({location, dispatch}) => {
   }
 
   return (
-    <>
+    <div className="Location">
       <LocationDisplay location={location} />
       {warning && <WarningDisplay warning={warning} />}
       <LocationInput onLocationSearch={handleLocationSearch} />
-    </>
+    </div>
   );
 };
 

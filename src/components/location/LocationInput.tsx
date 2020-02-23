@@ -19,12 +19,12 @@ const LocationInput: React.FC<ILocationInputProps> = ({onLocationSearch}) => {
   }
 
   return (
-    <form onSubmit={searchLocation}>
-      <label htmlFor="locationInput">
+    <form className="InputForm" onSubmit={searchLocation}>
+      <label className="InputForm_label" htmlFor="locationInput">
         {label}
       </label>
-      <input type="text" id="locationInput" ref={locationInputRef} />
-      <button type="submit">{buttonText}</button>
+      <input className="InputForm_input" type="text" id="locationInput" ref={locationInputRef} />
+      <button className="InputForm_button" type="submit">{buttonText}</button>
     </form>
 
 

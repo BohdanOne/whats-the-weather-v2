@@ -1,10 +1,10 @@
 export default [
   {
-    label: 'Enter location: ',
+    label: 'enter location: ',
     buttonText: 'search'
   },
   {
-    label: 'Wpisz lokalizację ',
+    label: 'wpisz lokalizację ',
     buttonText: 'szukaj'
   }
 ];
