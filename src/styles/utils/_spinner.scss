@@ -1,5 +1,5 @@
 /* Spinner from https://codepen.io/bernethe/pen/dorozd */
-.spinner {
+.Spinner {
   padding: 1rem 1rem 2rem;
   margin: 0 auto;
   color: var(--color-accent);
@@ -8,12 +8,12 @@
   background: transparent;
   border-radius: 1rem;
 
-  &__message {
+  &_message {
     color: var(--color-main);
     margin-bottom: 2rem;
   }
 
-  &__spinner {
+  &_spinner {
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
