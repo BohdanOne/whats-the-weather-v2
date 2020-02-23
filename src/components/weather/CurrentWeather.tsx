@@ -14,25 +14,30 @@ interface ILocation {
 
 const CurrentWeather: React.FC<ILocation> = ({ location }) => {
   const [weather, setWeather] = useState<ICurrentWeather>();
+  const [error, setError] = useState<boolean>(false);
   const language = useContext(LanguageContext);
 
-  const {title, error, spinnerMessageNoLocation, spinnerMessageNoWeather } = language === 'en' ? content[0]: content[1];
+  const {title, errorMessage, spinnerMessageNoLocation, spinnerMessageNoWeather } = language === 'en' ? content[0]: content[1];
 
   useEffect(() => {
+
     if (location) {
       axios
         .post(API_URL, {location, language})
         .then(response => response.data)
         .then((data: ICurrentWeather) => {
-
+          setError(false);
           setWeather(data)
-
         })
         .catch(e => {
-          console.log(e)
+          setError(true)
         });
     }
-  }, [location, language]);
+  }, [location, language, error]);
+
+  if (error) {
+    return <div>{errorMessage}</div>
+  }
 
   if (!location) {
     return <Spinner message={spinnerMessageNoLocation} />;
@@ -52,7 +57,7 @@ const CurrentWeather: React.FC<ILocation> = ({ location }) => {
       </div>
     );
   }
-  return <div>{error}</div>;
+  return <div>{errorMessage}</div>;
 };
 
 export default CurrentWeather;
