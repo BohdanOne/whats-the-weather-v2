@@ -18,6 +18,10 @@ body {
   body { padding: 40px; }
 }
 
+@media (min-width: 1024px) {
+  body { padding: 60px; }
+}
+
 @media (min-width: 1440px) {
-  body { padding: 100px; }
+  body { padding: 80px; }
 }

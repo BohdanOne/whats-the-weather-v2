@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { LanguageContext } from '../language/LanguageProvider';
 import LocationDisplay from './LocationDisplay';
 import LocationInput from './LocationInput';
 import WarningDisplay from './WarningDisplay';
@@ -11,19 +12,20 @@ interface ILocationProps {
   dispatch: Function | null;
 }
 
-const Location: React.FC<ILocationProps> = ({location, dispatch}) => {
+const Location: React.FC<ILocationProps> = ({ location, dispatch }) => {
   const [warning, setWarning] = useState('');
   const geolocationSupported = navigator && navigator.geolocation;
+  const language = useContext(LanguageContext);
 
   useEffect(() => {
     if (geolocationSupported && !location) {
       navigator.geolocation.getCurrentPosition(success, error => {
-        if (error.code === 1) {
+        if (error) {
           setWarning(
-            'Please allow access to your location or provide desired location manually.'
+            language === 'en'
+              ? 'Please allow access to your location or provide desired location manually.'
+              : 'Zezwól na dostęp do usługi lokalizacji lub wpisz lokalizację ręcznie.'
           );
-        } else {
-          setWarning(error.message);
         }
       });
     }
@@ -31,22 +33,22 @@ const Location: React.FC<ILocationProps> = ({location, dispatch}) => {
       const lat = position.coords.latitude.toString();
       const long = position.coords.longitude.toString();
       const location = (await decodeLocation(lat, long)) as string;
-      dispatch &&
-        dispatch({ type: 'SET_LOCATION', payload: location });
+      dispatch && dispatch({ type: 'SET_LOCATION', payload: location });
     }
   });
 
   useEffect(() => {
     if (!location && !geolocationSupported) {
       setWarning(
-        'Geolocation is not supported by your browser. Please provide desired location manually.'
+        language === 'en'
+          ? 'Geolocation is not supported by your browser. Please provide desired location manually.'
+          : 'Geolokacja nie jest obsługiwana przez Twoją przeglądarkę. Wpisz lokalizację ręcznie.'
       );
     }
-  }, [location, geolocationSupported]);
+  }, [location, geolocationSupported, language]);
 
   function handleLocationSearch(location: string) {
-    dispatch &&
-      dispatch({ type: 'SET_LOCATION', payload: location });
+    dispatch && dispatch({ type: 'SET_LOCATION', payload: location });
   }
 
   return (

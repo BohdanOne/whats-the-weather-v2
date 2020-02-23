@@ -1,5 +1,10 @@
 .Location {
   padding: 25px 0;
+
+  &_warning {
+    margin-bottom: 1rem;
+  }
+  
   .InputForm {
     display: flex;
     flex-direction: column;
@@ -14,9 +19,5 @@
     &_input {
       margin-bottom: 1rem;
     }
-
-    // &_button {
-    //   width: 100px;
-    // }
   }
 }
