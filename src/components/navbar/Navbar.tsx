@@ -1,11 +1,15 @@
 import React from 'react';
 import SettingsPanel from './SettingsPanel';
+import NavbarIcon from './NavbarIcon';
+import Nav from './Nav';
 
 const Navbar: React.FC = () => {
   return (
-    <nav>
+    <div className="Navbar">
       <SettingsPanel />
-    </nav>
+      <NavbarIcon />
+      <Nav />
+    </div>
   );
 };
 

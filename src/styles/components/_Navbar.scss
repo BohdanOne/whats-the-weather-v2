@@ -1,0 +1,11 @@
+.Navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &_icon {
+    fill: var(--color-accent);
+    width: 32px;
+    height: 32px;
+  }
+}
