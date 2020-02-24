@@ -4,7 +4,7 @@ import content from './locationDisplayContent';
 import { LanguageContext } from '../language/LanguageProvider';
 
 const LocationDisplay: React.FC<{ location: string }> = ({ location }) => {
-  const language = useContext(LanguageContext);
+  const {language} = useContext(LanguageContext);
   const { title, spinnerMessage } = language === 'en' ? content[0] : content[1];
 
   return (

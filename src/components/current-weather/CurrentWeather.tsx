@@ -17,7 +17,7 @@ interface ILocation {
 const CurrentWeather: React.FC<ILocation> = ({ location }) => {
   const [weather, setWeather] = useState<ICurrentWeather>();
   const [error, setError] = useState<boolean>(false);
-  const language = useContext(LanguageContext);
+  const {language} = useContext(LanguageContext);
 
   const {title, errorMessage, spinnerMessageNoLocation, spinnerMessageNoWeather } = language === 'en' ? content[0]: content[1];
 

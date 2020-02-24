@@ -9,7 +9,7 @@ interface ILocationInputProps {
 
 const LocationInput: React.FC<ILocationInputProps> = ({onLocationSearch}) => {
   const locationInputRef = useRef<HTMLInputElement>(null);
-  const language = useContext(LanguageContext);
+  const {language} = useContext(LanguageContext);
   const {label, buttonText} = language === 'en' ? content[0]: content[1];
 
   const searchLocation = (event: React.FormEvent) => {
@@ -26,8 +26,6 @@ const LocationInput: React.FC<ILocationInputProps> = ({onLocationSearch}) => {
       <input className="InputForm_input" type="text" id="locationInput" ref={locationInputRef} />
       <button className="InputForm_button" type="submit">{buttonText}</button>
     </form>
-
-
   )
 };
 

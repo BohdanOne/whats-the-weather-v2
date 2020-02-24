@@ -1,51 +1,44 @@
-import React, { useRef } from 'react';
+import React, { useContext } from 'react';
+import { LanguageContext } from './LanguageProvider';
 
-interface ILanguagePickerProps {
-  language: string;
-  onLanguageChoice: (language: string) => void;
-}
-
-const LanguagePicker: React.FC<ILanguagePickerProps> = ({language, onLanguageChoice}) => {
-  const languageSelectRef = useRef<HTMLSelectElement>(null);
-
-  const renderLabel = (language: string) => {
-    if (language === 'en') {
-      return (
-        <label htmlFor="languageSelect">
-          <span role="img" aria-label="Flag: United Kingdom">
-            🇬🇧
-          </span> Change language
-        </label>
-      );
-    } else {
-      return (
-        <label htmlFor="languageSelect">
-          <span role="img" aria-label="Flag: Poland">
-            🇵🇱
-          </span> Zmień język
-        </label>
-      );
-    }
-  };
-
-  const handleLanguageSelect = (event: React.FormEvent) => {
-    const language = languageSelectRef.current!.value;
-    onLanguageChoice(language);
-  };
+const LanguagePicker: React.FC = () => {
+  const { language, changeLanguage } = useContext(LanguageContext);
 
   return (
     <div>
-      {renderLabel(language)}
-      <select
-        name="languages"
-        id="languageSelect"
-        defaultValue="en"
-        onInput={handleLanguageSelect}
-        ref={languageSelectRef}
-      >
-        <option value="en">English</option>
-        <option value="pl">Polski</option>
-      </select>
+      <h3>{language === 'en' ? 'Change language' : 'Zmień język'}</h3>
+      <label htmlFor="en">
+        <span role="img" aria-label="Flag: United Kingdom">
+          {' '}
+          🇬🇧{' '}
+        </span>
+      </label>
+      <input
+        type="radio"
+        name="language"
+        id="en"
+        value="en"
+        checked={language === 'en'}
+        onChange={() =>
+          changeLanguage!({ type: 'CHANGE_LANGUAGE', payload: 'en' })
+        }
+      />
+      <label htmlFor="pl">
+        <span role="img" aria-label="Flag: Poland">
+          {' '}
+          🇵🇱{' '}
+        </span>
+      </label>
+      <input
+        type="radio"
+        name="language"
+        id="pl"
+        value="pl"
+        checked={language === 'pl'}
+        onChange={() =>
+          changeLanguage!({ type: 'CHANGE_LANGUAGE', payload: 'pl' })
+        }
+      />
     </div>
   );
 };

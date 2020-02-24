@@ -15,7 +15,7 @@ interface ILocationProps {
 const Location: React.FC<ILocationProps> = ({ location, dispatch }) => {
   const [warning, setWarning] = useState('');
   const geolocationSupported = navigator && navigator.geolocation;
-  const language = useContext(LanguageContext);
+  const {language} = useContext(LanguageContext);
 
   useEffect(() => {
     if (geolocationSupported && !location) {
