@@ -1,14 +1,14 @@
 .Navbar {
   display: grid;
-  grid-template-columns: 1fr 32px 1fr;
+  grid-template-columns: 1fr 2rem 1fr;
   align-items: center;
   max-width: 1000px;
   margin: 0 auto;
 
   &_icon {
     fill: var(--color-accent);
-    width: 32px;
-    height: 32px;
+    width: 2rem;
+    height: 2rem;
   }
 }
 

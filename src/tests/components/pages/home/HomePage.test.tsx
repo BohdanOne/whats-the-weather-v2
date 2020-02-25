@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { render } from '@testing-library/react';
-import HomePage from '../../../../components/pages/home/HomePage';
+import HomePage from '../../../../components/pages/HomePage';
 import Location from '../../../../components/location/Location';
 
 describe('<HomePage />', () => {

@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import { LocationContext } from '../../location/LocationProvider';
+import { LocationContext } from '../location/LocationProvider';
 
-import Header from '../../shared/Header';
-import Location from '../../location/Location';
-import CurrentWeather from '../../current-weather/CurrentWeather';
+import Header from '../shared/Header';
+import Location from '../location/Location';
+import CurrentWeather from '../current-weather/CurrentWeather';
 
 export default () => {
   const { location, dispatch } = useContext(LocationContext);

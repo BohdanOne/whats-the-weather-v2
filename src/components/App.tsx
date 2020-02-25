@@ -5,7 +5,9 @@ import { LanguageProvider } from './language/LanguageProvider';
 import Spinner from './shared/Spinner';
 import Navbar from './navbar/Navbar';
 
-const HomePage = lazy(() => import('./pages/home/HomePage'));
+const HomePage = lazy(() => import('./pages/HomePage'));
+const ForecastsPage = lazy(() => import('./pages/ForecastsPage'));
+const AboutPage = lazy(() => import('./pages/AboutPage'));
 
 const App = () => {
   return (
@@ -16,9 +18,9 @@ const App = () => {
           <main>
             <LocationProvider>
               <Switch>
-                <Route exac path="/" component={HomePage} />
-                <Route exac path="/forecasts" component={HomePage} />
-                <Route exac path="/about" component={HomePage} />
+                <Route exact path="/" component={HomePage} />
+                <Route path="/forecasts" component={ForecastsPage} />
+                <Route path="/about" component={AboutPage} />
               </Switch>
             </LocationProvider>
           </main>
