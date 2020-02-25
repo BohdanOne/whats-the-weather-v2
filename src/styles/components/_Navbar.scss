@@ -10,17 +10,51 @@
     width: 2rem;
     height: 2rem;
   }
+
+  &_button {
+    width: 3rem;
+    height: 3rem;
+    padding: 0.5rem;
+
+    &___right {
+      justify-self: end;
+    }
+  }
+
+  &_button_icon {
+    width: 100%;
+    height: 100%;
+    fill: var(--color-main);
+    opacity: 50%;
+    transition: fill 0.3s ease-in-out;
+  }
+
+  &_button:hover &_button_icon {
+    fill: var(--color-accent);
+  }
 }
 
 .SettingsPanel {
   display: flex;
 
   &_picker {
-    margin: 0 .8rem;
+    margin: 0 0.8rem;
   }
 }
 
 .Nav {
   display: flex;
   justify-content: flex-end;
+}
+
+@media (max-width: 767px) {
+  .SettingsPanel_picker,
+  .Nav {
+    display: none;
+  }
+}
+@media (min-width: 768px) {
+  .Navbar_button {
+    display: none;
+  }
 }
