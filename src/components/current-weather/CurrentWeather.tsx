@@ -7,8 +7,7 @@ import CurrentWeatherDetails from './CurrentWeatherDetails';
 import { LanguageContext } from '../language/LanguageProvider';
 import content from './currentWeatherContent';
 
-// const API_URL = 'https://wtw-api.herokuapp.com/weather/current';
-const API_URL = 'http://localhost:8080/weather/current';
+const API_URL = 'https://wtw-api.herokuapp.com/weather/current';
 
 interface ILocation {
   location: string;
