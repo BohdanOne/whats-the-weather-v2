@@ -7,6 +7,7 @@
 body {
   width: 100%;
   background-color: var(--color-oposite);
+  transition: background-color 0.5s ease-in-out;
   padding: 10px;
 }
 
@@ -16,17 +17,25 @@ section {
 }
 
 @media (min-width: 340px) {
-  body { padding: 20px; }
+  body {
+    padding: 20px;
+  }
 }
 
 @media (min-width: 768px) {
-  body { padding: 40px; }
+  body {
+    padding: 40px;
+  }
 }
 
 @media (min-width: 1024px) {
-  body { padding: 60px; }
+  body {
+    padding: 60px;
+  }
 }
 
 @media (min-width: 1440px) {
-  body { padding: 80px; }
+  body {
+    padding: 80px;
+  }
 }
