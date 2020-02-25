@@ -2,7 +2,6 @@ import React, { useReducer } from 'react';
 import languageReducer from './languageReducer';
 
 const DEFAULT_LANGUAGE = window.navigator.language.slice(0, 2) || 'en';
-console.log(DEFAULT_LANGUAGE)
 
 interface ILanguageContext {
   language: string;

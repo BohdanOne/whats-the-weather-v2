@@ -1,0 +1,16 @@
+a {
+  font: inherit;
+  color: var(--color-main);
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+  margin: 0 .8rem;
+
+  &:hover {
+    color: var(--color-accent-light);
+    text-decoration: underline;
+  }
+
+  &.current {
+    color: var(--color-accent);
+  }
+}

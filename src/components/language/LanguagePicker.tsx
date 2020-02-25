@@ -5,8 +5,8 @@ const LanguagePicker: React.FC = () => {
   const { language, changeLanguage } = useContext(LanguageContext);
 
   return (
-    <div>
-      <h3>{language === 'en' ? 'Change language' : 'Zmień język'}</h3>
+    <div className="SettingsPanel_picker">
+      <p>{language === 'en' ? 'change language' : 'zmień język'}</p>
       <label htmlFor="en">
         <span role="img" aria-label="Flag: United Kingdom">
           {' '}
