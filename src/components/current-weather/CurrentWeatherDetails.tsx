@@ -39,7 +39,7 @@ const CurrentWeatherDetails: React.FC<ICurrentWeatherDetails> = ({
       <div className="CurrentWeatherDetails_basic">
         <div className="CurrentWeatherDetails_icon">
           <img
-            src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+            src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
             alt=""
           />
         </div>
