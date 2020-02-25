@@ -1,36 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import higlightCurrentLink from './highlightCurrentLink';
 import NavToggle from './NavToggle';
 
 const Nav: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleSettings = () => setIsOpen(!isOpen);
+
   const currentPage = useLocation().pathname;
 
-  const higlightCurrentLink = () => {
-    const links = document.querySelectorAll('.Nav_link');
-    links.forEach(link => {
-      link.id === currentPage
-        ? link.classList.add('current')
-        : link.classList.remove('current');
-    });
-  };
-
-  higlightCurrentLink();
+  higlightCurrentLink(currentPage);
 
   return (
-    <>
-      <NavToggle />
-      <nav className="Nav">
-        <Link className="Nav_link current" id="/" to="/">
+    <div className="Nav">
+      <NavToggle handleClick={toggleSettings} isOpen={isOpen}/>
+      <nav className={`Nav_linkList ${isOpen ? 'open' : ''}`}>
+        <Link onClick={toggleSettings} className="Nav_link current" id="/" to="/">
           HOME
         </Link>
-        <Link className="Nav_link" id="/forecasts" to="/forecasts">
+        <Link onClick={toggleSettings} className="Nav_link" id="/forecasts" to="/forecasts">
           FORECASTS
         </Link>
-        <Link className="Nav_link" id="/about" to="/about">
+        <Link onClick={toggleSettings} className="Nav_link" id="/about" to="/about">
           ABOUT
         </Link>
       </nav>
-    </>
+    </div>
   );
 };
 

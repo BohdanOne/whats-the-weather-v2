@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { LanguageContext } from '../language/LanguageProvider';
 import toggleMode from './toggleMode';
 
-const LanguagePicker: React.FC = () => {
+const ModeSwitch: React.FC = () => {
   const { language } = useContext(LanguageContext);
 
   const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -13,7 +13,7 @@ const LanguagePicker: React.FC = () => {
   });
 
   return (
-    <div className="SettingsPanel_picker">
+    <div className="SettingsPanel_switch">
       <p>{language === 'en' ? 'choose mode' : 'wybierz tryb'}</p>
       <label htmlFor="light">
         <span role="img" aria-label="Sun">
@@ -47,4 +47,4 @@ const LanguagePicker: React.FC = () => {
   );
 };
 
-export default LanguagePicker;
+export default ModeSwitch;

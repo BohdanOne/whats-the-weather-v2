@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import { LanguageContext } from './LanguageProvider';
 
-const LanguagePicker: React.FC = () => {
+const LanguageSwitch: React.FC = () => {
   const { language, changeLanguage } = useContext(LanguageContext);
 
   return (
-    <div className="SettingsPanel_picker">
+    <div className="SettingsPanel_switch">
       <p>{language === 'en' ? 'change language' : 'zmień język'}</p>
       <label htmlFor="en">
         <span role="img" aria-label="Flag: United Kingdom">
@@ -43,4 +43,4 @@ const LanguagePicker: React.FC = () => {
   );
 };
 
-export default LanguagePicker;
+export default LanguageSwitch;

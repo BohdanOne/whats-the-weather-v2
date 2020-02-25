@@ -15,9 +15,17 @@
     width: 3rem;
     height: 3rem;
     padding: 0.5rem;
+    margin: 0 1rem;
+    z-index: 100;
+    position: absolute;
 
+    &___left {
+      top: 2rem;
+      left: 2rem;
+    }
     &___right {
-      justify-self: end;
+      top: 2rem;
+      right: 2rem;
     }
   }
 
@@ -35,26 +43,64 @@
 }
 
 .SettingsPanel {
-  display: flex;
+  &_switchContainer {
+    display: none;
+    position: relative;
 
-  &_picker {
+    &.open {
+      display: flex;
+      position: absolute;
+      background: var(--color-oposite);
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 3rem;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      z-index: 10;
+    }
+  }
+
+  &_switch {
     margin: 0 0.8rem;
   }
 }
 
 .Nav {
-  display: flex;
-  justify-content: flex-end;
+  &_linkList {
+    display: flex;
+    justify-content: flex-end;
+
+    &.open {
+      display: flex;
+      position: absolute;
+      background: var(--color-oposite);
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 3rem;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      z-index: 10;
+    }
+  }
 }
 
 @media (max-width: 767px) {
-  .SettingsPanel_picker,
-  .Nav {
+  .Nav_linkList {
     display: none;
   }
 }
+
 @media (min-width: 768px) {
   .Navbar_button {
     display: none;
+  }
+  .SettingsPanel_switchContainer {
+    display: flex;
   }
 }
