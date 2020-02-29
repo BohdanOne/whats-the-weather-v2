@@ -24,7 +24,7 @@ const LocationInput: React.FC<ILocationInputProps> = ({onLocationSearch}) => {
         {label}
       </label>
       <input className="InputForm_input" type="text" id="locationInput" ref={locationInputRef} />
-      <button className="InputForm_button" type="submit">{buttonText}</button>
+      <button className="InputForm_button" type="submit" aria-label="Search for Location">{buttonText}</button>
     </form>
   )
 };

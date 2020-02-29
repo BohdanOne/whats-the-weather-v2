@@ -52,6 +52,9 @@ const CurrentWeatherDetails: React.FC<ICurrentWeatherDetails> = ({
             {weather.main.temp.toFixed(1)}°C
           </p>
           <button
+            role="switch"
+            aria-checked={!extendedView}
+            aria-label="Toggle Details"
             onClick={() => {
               setExtendedView(!extendedView);
             }}
