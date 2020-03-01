@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { LanguageContext } from '../language/LanguageProvider';
+import { LanguageContext } from '../../providers/LanguageProvider';
 import LocationDisplay from './LocationDisplay';
 import LocationInput from './LocationInput';
 import WarningDisplay from './WarningDisplay';

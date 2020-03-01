@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import { LanguageContext } from '../language/LanguageProvider';
-import toggleMode from './toggleMode';
+import { LanguageContext } from '../../../providers/LanguageProvider';
 
 const ModeSwitch: React.FC = () => {
   const { language } = useContext(LanguageContext);
@@ -13,7 +12,7 @@ const ModeSwitch: React.FC = () => {
   });
 
   return (
-    <div className="SettingsPanel_switch">
+    <div className="nav__item">
       <p>{language === 'en' ? 'choose mode' : 'wybierz tryb'}</p>
       <label htmlFor="light">
         <span role="img" aria-label="Sun">
@@ -46,5 +45,18 @@ const ModeSwitch: React.FC = () => {
     </div>
   );
 };
+
+const toggleMode = (mode: 'dark' | 'light') => {
+  const rootStyle = document.documentElement.style;
+    if (mode === 'light') {
+      rootStyle.setProperty('--color-main', '#48484a');
+      rootStyle.setProperty('--color-main-light', 'rgba(72, 72, 74, 0.5)');
+      rootStyle.setProperty('--color-opposite', '#f2f2f1');
+    } else {
+      rootStyle.setProperty('--color-main', '#f2f2f1');
+      rootStyle.setProperty('--color-main-light', 'rgba(242, 242, 241, 0.5)');
+      rootStyle.setProperty('--color-opposite', '#48484a');
+    }
+}
 
 export default ModeSwitch;

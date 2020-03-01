@@ -4,7 +4,7 @@ import { ICurrentWeather } from './currentWeather.model';
 import Spinner from '../shared/Spinner';
 import ErrorDisplay from '../shared/ErrorDisplay';
 import CurrentWeatherDetails from './CurrentWeatherDetails';
-import { LanguageContext } from '../language/LanguageProvider';
+import { LanguageContext } from '../../providers/LanguageProvider';
 import content from './currentWeatherContent';
 
 const API_URL = 'https://wtw-api.herokuapp.com/weather/current';

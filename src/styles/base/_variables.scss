@@ -1,0 +1,53 @@
+/* :root colors are dynamically swapped when switching between dark/light mode
+=============================================================================*/
+:root {
+  --color-main: #f2f2f1;
+  --color-main-light: rgba(242, 242, 241, 0.5);
+  --color-opposite: #48484a;
+}
+
+/* Colors
+=============================================================================*/
+$color-main: var(--color-main);
+$color-main-light: var(--color-main-light);
+$color-opposite: var(--color-opposite);
+$color-accent: #ec6e4c;
+$color-accent-light: rgba(236, 110, 76, .8);
+
+/* Fonts
+=============================================================================*/
+$fs: 1rem;
+$fs-l: 1.953rem;
+$fs-xl: 2.441rem;
+
+$fw-thin: 100;
+$fw-light: 300;
+$fw-regular: 400;
+
+/* Box Shadow
+=============================================================================*/
+$box-shadow:
+  2px 2px 5px rgba(0, 0, 0, 0.5),
+  -2px -2px 5px rgba(255, 255, 255, 0.1);
+$box-shadow-inset:
+  inset 2px 2px 5px rgba(0, 0, 0, 0.5),
+  inset -2px -2px 5px rgba(255, 255, 255, 0.1);
+
+/* Border Radius
+=============================================================================*/
+$border-radius: 10px;
+
+/* Transition Time
+=============================================================================*/
+$time: 300ms;
+
+/* Gutter
+=============================================================================*/
+$gutter: 10px;
+
+/* Breakpoints
+=============================================================================*/
+$mobile: 340px;
+$tablet: 768px;
+$laptop: 1024px;
+$desktop: 1440px;

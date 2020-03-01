@@ -1,0 +1,7 @@
+.o-input {
+  @extend %box-reset;
+  box-shadow: $box-shadow-inset;
+  width: 60%;
+  max-width: 300px;
+  color: inherit;
+}

@@ -13,19 +13,10 @@
 
     &_label {
       width: 100%;
-      margin-bottom: 1rem;
-    }
-
-    &_input {
-      margin-bottom: 1rem;
-    }
-
-    &_button {
-      margin-bottom: 1rem;
     }
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: $tablet) {
     .InputForm {
       flex-direction: row;
       justify-content: space-evenly;

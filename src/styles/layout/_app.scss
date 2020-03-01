@@ -1,0 +1,31 @@
+.l-app {
+  width: 100%;
+  min-height: 100vh;
+  padding: $gutter;
+  background-color: $color-opposite;
+  transition: background-color 0.5s ease-in-out;
+}
+
+@media (min-width: $mobile) {
+  .l-app {
+    padding: $gutter * 2;
+  }
+}
+
+@media (min-width: $tablet) {
+  .l-app {
+    padding: $gutter * 4;
+  }
+}
+
+@media (min-width: $laptop) {
+  .l-app {
+    padding: $gutter * 6;
+  }
+}
+
+@media (min-width: $desktop) {
+  .l-app {
+    padding: $gutter * 8;
+  }
+}

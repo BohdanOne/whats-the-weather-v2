@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400&display=swap');
+
+html {
+  font-size: 14px;
+}
+
+body {
+  @include font($fs, $fw-light);
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: $fw-light;
+  letter-spacing: 0.06rem;
+  line-height: 1.4;
+  color: $color-main;
+}
+
+h1 {
+  @include font($fs-xl, $fw-thin);
+  text-align: center;
+}
+
+h2 {
+  @include font($fs, $fw-light);
+  text-align: left;
+  color: $color-accent;
+
+  span {
+    font-weight: $fw-regular;
+    text-align: center;
+    text-transform: uppercase;
+    color: $color-main;
+  }
+}
+
+a {
+  font: inherit;
+  text-decoration: none;
+  color: inherit;
+  transition: color $time ease-in-out;
+
+  &:hover {
+    color: $color-accent-light;
+    text-decoration: underline;
+  }
+}
+
+li {
+  list-style: none;
+}
+
+/* Media Queries
+=============================================================================*/
+@media (min-width: $mobile) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: $tablet) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: $laptop) {
+  html {
+    font-size: 18px;
+  }
+}

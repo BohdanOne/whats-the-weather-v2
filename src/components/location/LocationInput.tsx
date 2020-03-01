@@ -1,6 +1,6 @@
 import React, { useRef, useContext } from 'react';
 import content from './locationInputContent';
-import { LanguageContext } from '../language/LanguageProvider';
+import { LanguageContext } from '../../providers/LanguageProvider';
 
 
 interface ILocationInputProps {
@@ -23,8 +23,8 @@ const LocationInput: React.FC<ILocationInputProps> = ({onLocationSearch}) => {
       <label className="InputForm_label" htmlFor="locationInput">
         {label}
       </label>
-      <input className="InputForm_input" type="text" id="locationInput" ref={locationInputRef} />
-      <button className="InputForm_button" type="submit" aria-label="Search for Location">{buttonText}</button>
+      <input className="o-input" type="text" id="locationInput" ref={locationInputRef} />
+      <button className="o-button" type="submit" aria-label="Search for Location">{buttonText}</button>
     </form>
   )
 };

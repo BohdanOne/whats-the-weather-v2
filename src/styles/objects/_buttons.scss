@@ -1,0 +1,16 @@
+.o-button {
+  @extend %box-reset;
+  padding: 0 10px;
+  color: $color-main;
+  transition: color $time ease-in-out;
+  box-shadow: $box-shadow;
+
+  &:hover {
+    color: $color-accent;
+    cursor: pointer;
+  }
+
+  &:active {
+    box-shadow: $box-shadow-inset;
+  }
+}

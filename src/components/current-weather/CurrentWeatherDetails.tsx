@@ -31,9 +31,9 @@ const CurrentWeatherDetails: React.FC<ICurrentWeatherDetails> = ({
 
   return (
     <section className="CurrentWeatherDetails">
-      <h2>
+      <h2 className="o-title--section">
         {title}
-        <span>{weather.name.toUpperCase()}</span>
+        <span className="o-title__bold">{weather.name}</span>
       </h2>
 
       <div className="CurrentWeatherDetails_basic">
@@ -52,6 +52,7 @@ const CurrentWeatherDetails: React.FC<ICurrentWeatherDetails> = ({
             {weather.main.temp.toFixed(1)}°C
           </p>
           <button
+            className="o-button"
             role="switch"
             aria-checked={!extendedView}
             aria-label="Toggle Details"

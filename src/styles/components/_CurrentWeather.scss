@@ -7,7 +7,7 @@
 
   &_icon {
     @include center();
-      background-color: var(--color-main-lighter);
+      background-color: $color-main-light;
       width: 100px;
       height: 100px;
       border-radius: 50%;
@@ -24,12 +24,12 @@
   }
 
   &_desc {
-    font-weight: var(--fw-regular);
+    font-weight: $fw-regular;
     text-align: center;
   }
 
   &_temp {
-    font-size: var(--fs-l);
+    font-size: $fs-l;
   }
 
   &_extended {

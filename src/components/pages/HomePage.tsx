@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { LocationContext } from '../location/LocationProvider';
+import { LocationContext } from '../../providers/LocationProvider';
 
 import Header from '../shared/Header';
 import Location from '../location/Location';

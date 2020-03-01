@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import Spinner from '../shared/Spinner';
 import content from './locationDisplayContent';
-import { LanguageContext } from '../language/LanguageProvider';
+import { LanguageContext } from '../../providers/LanguageProvider';
 
 const LocationDisplay: React.FC<{ location: string }> = ({ location }) => {
   const {language} = useContext(LanguageContext);
@@ -10,8 +10,8 @@ const LocationDisplay: React.FC<{ location: string }> = ({ location }) => {
   return (
     <div className="LocationDisplay">
       {location ? (
-        <h2>
-          {title}: <span>{location}</span>
+        <h2 className="o-title--section">
+          {title}: <span className="o-title__bold">{location}</span>
         </h2>
       ) : (
         <Spinner message={spinnerMessage} />
