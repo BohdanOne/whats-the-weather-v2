@@ -6,7 +6,7 @@ const SettingsPanel: React.FC = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="settings-panel">
+    <div className="l-settings-panel">
       <SettingsToggle handleClick={() => setIsExpanded(!isExpanded)} isExpanded={isExpanded} />
       <SettingsList handleClick={()=>setIsExpanded(!isExpanded)} isExpanded={isExpanded} />
     </div>

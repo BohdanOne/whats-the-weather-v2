@@ -1,7 +1,22 @@
 .l-header {
   display: grid;
   grid-template-columns: 1fr 2rem 1fr;
+  grid-template-rows: auto auto;
+  grid-row-gap: $gutter;
   align-items: center;
+  justify-items: center;
+  margin: 0 auto 2rem;
   max-width: 1000px;
-  margin: 0 auto;
+}
+
+.l-header__title {
+  grid-column: span 3;
+}
+
+.l-main-nav {
+  justify-self: end;
+}
+
+.l-settings-panel {
+  justify-self: start;
 }

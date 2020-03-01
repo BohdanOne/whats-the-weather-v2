@@ -6,7 +6,7 @@ const Nav: React.FC = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <nav className='main-nav'>
+    <nav className='l-main-nav'>
       <NavToggle handleClick={()=>setIsExpanded(!isExpanded)} isExpanded={isExpanded} />
       <NavList handleClick={()=>setIsExpanded(!isExpanded)} isExpanded={isExpanded} />
     </nav>

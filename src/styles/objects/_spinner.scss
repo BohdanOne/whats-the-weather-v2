@@ -2,14 +2,14 @@
 .o-spinner {
   padding: 1rem 1rem 2rem;
   margin: 0 auto;
-  color: var(--color-accent);
+  color: $color-accent;
   text-align: center;
   width: fit-content;
   background: transparent;
   border-radius: 1rem;
 }
 .o-spinner__message {
-  color: var(--color-main);
+  color: $color-main;
   margin-bottom: 2rem;
 }
 

@@ -9,6 +9,7 @@ const MainHeader: React.FC = () => {
       <SettingsPanel />
       <HeaderIcon />
       <MainNav />
+      <h1 className="l-header__title">What's the Weather</h1>
     </header>
   );
 };
