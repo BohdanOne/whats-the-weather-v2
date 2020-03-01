@@ -14,3 +14,30 @@
     box-shadow: $box-shadow-inset;
   }
 }
+
+.o-button--nav {
+  display: none;
+  width: 3rem;
+  height: 3rem;
+  padding: 0.5rem;
+  margin: 0 1rem;
+  z-index: 100;
+}
+
+.o-button--nav__icon {
+  width: 100%;
+  height: 100%;
+  fill: $color-main;
+  opacity: .7;
+  transition: fill 0.3s ease-in-out;
+}
+
+.o-button--nav:hover .o-button--nav__icon {
+  fill: $color-accent;
+}
+
+@media (max-width: $tablet) {
+  .o-button--nav {
+    display: block;
+  }
+}

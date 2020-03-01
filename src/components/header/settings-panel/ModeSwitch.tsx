@@ -12,7 +12,7 @@ const ModeSwitch: React.FC = () => {
   });
 
   return (
-    <div className="nav__item">
+    <div className="c-nav__item">
       <p>{language === 'en' ? 'choose mode' : 'wybierz tryb'}</p>
       <label htmlFor="light">
         <span role="img" aria-label="Sun">

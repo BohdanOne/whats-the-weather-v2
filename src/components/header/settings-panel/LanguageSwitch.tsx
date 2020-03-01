@@ -5,7 +5,7 @@ const LanguageSwitch: React.FC = () => {
   const { language, changeLanguage } = useContext(LanguageContext);
 
   return (
-    <div className='nav__item'>
+    <div className='c-nav__item'>
       <p>{language === 'en' ? 'change language' : 'zmień język'}</p>
       <label htmlFor='en'>
         <span role='img' aria-label='Flag: United Kingdom'>

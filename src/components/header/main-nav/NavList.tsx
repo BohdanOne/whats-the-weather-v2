@@ -1,19 +1,12 @@
 import React from 'react';
-import IToggleProps from '../toggleInterface';
 import NavItem from './NavItem';
 
-const NavList: React.FC<IToggleProps> = ({ handleClick, isExpanded }) => {
-  const collapseNav = () => {
-    if (isExpanded) {
-      handleClick();
-    }
-  };
-
+const NavList: React.FC<{ closeNav: () => void }> = ({ closeNav }) => {
   return (
-    <ul className={`nav__list nav__list--nav ${isExpanded ? 'nav__list--is-expanded' : ''}`}>
-      <NavItem handleClick={collapseNav} path='' />
-      <NavItem handleClick={collapseNav} path='forecasts' />
-      <NavItem handleClick={collapseNav} path='about' />
+    <ul className='c-nav__list c-nav__list--nav' onClick={closeNav}>
+      <NavItem path='' />
+      <NavItem path='forecasts' />
+      <NavItem path='about' />
     </ul>
   );
 };

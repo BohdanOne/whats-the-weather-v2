@@ -1,14 +1,23 @@
 import React, { useState } from 'react';
-import SettingsToggle from './SettingsToggle';
+import SettingsToggle from '../nav-buttons/SettingsButton';
 import SettingsList from './SettingsList';
+import CloseButton from '../nav-buttons/CloseButton';
 
 const SettingsPanel: React.FC = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="l-settings-panel">
-      <SettingsToggle handleClick={() => setIsExpanded(!isExpanded)} isExpanded={isExpanded} />
-      <SettingsList handleClick={()=>setIsExpanded(!isExpanded)} isExpanded={isExpanded} />
+    <div
+      className={`c-nav c-nav--settings ${
+        isExpanded ? 'c-nav--is-expanded' : ''
+      }`}
+    >
+      {isExpanded ? (
+        <CloseButton closeNav={() => setIsExpanded(false)} />
+      ) : (
+        <SettingsToggle openNav={() => setIsExpanded(true)} />
+      )}
+      <SettingsList />
     </div>
   );
 };
