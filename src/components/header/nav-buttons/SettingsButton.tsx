@@ -1,11 +1,13 @@
 import React from 'react';
+import { INavClickable } from '../../../types'
+import content from '../../../contents/headerContent';
 
-const SettingsButton: React.FC<{ openNav: () => void }> = ({ openNav }) => {
+const SettingsButton: React.FC<INavClickable> = ({ handleClick, language }) => {
   return (
     <button
       className='o-button o-button--nav'
-      onClick={openNav}
-      aria-label='Open Settings'
+      onClick={handleClick}
+      aria-label={`${content[language].button.settings}`}
     >
       <svg
         viewBox='0 0 26 26'

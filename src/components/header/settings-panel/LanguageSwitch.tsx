@@ -1,12 +1,14 @@
 import React, { useContext } from 'react';
 import { LanguageContext } from '../../../providers/LanguageProvider';
+import { Languages } from '../../../types';
+import content from '../../../contents/headerContent';
 
 const LanguageSwitch: React.FC = () => {
   const { language, changeLanguage } = useContext(LanguageContext);
 
   return (
     <div className='c-nav__item'>
-      <p>{language === 'en' ? 'change language' : 'zmień język'}</p>
+      <p>{content[language].switch.language}</p>
       <label htmlFor='en'>
         <span role='img' aria-label='Flag: United Kingdom'>
           {' '}
@@ -20,7 +22,7 @@ const LanguageSwitch: React.FC = () => {
         value='en'
         checked={language === 'en'}
         onChange={() => {
-          changeLanguage!({ type: 'CHANGE_LANGUAGE', payload: 'en' });
+          changeLanguage!({ type: 'CHANGE_LANGUAGE', payload: Languages.en });
         }}
       />
       <label htmlFor='pl'>
@@ -36,7 +38,7 @@ const LanguageSwitch: React.FC = () => {
         value='pl'
         checked={language === 'pl'}
         onChange={() => {
-          changeLanguage!({ type: 'CHANGE_LANGUAGE', payload: 'pl' });
+          changeLanguage!({ type: 'CHANGE_LANGUAGE', payload: Languages.pl });
         }}
       />
     </div>

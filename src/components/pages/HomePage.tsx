@@ -1,16 +1,17 @@
-import React, { useContext } from 'react';
-import { LocationContext } from '../../providers/LocationProvider';
+import React from 'react';
 
-import Location from '../location/Location';
-import CurrentWeather from '../current-weather/CurrentWeather';
+import LocationContainer from '../location/LocationContainer';
+// import CurrentWeather from '../current-weather/CurrentWeather';
 
 export default () => {
-  const { location, dispatch } = useContext(LocationContext);
-
   return (
-    <div className=".l-page">
-      <Location location={location} dispatch={dispatch} />
-      <CurrentWeather location={location} />
+    <div className="l-page">
+      <section className="l-section">
+        <LocationContainer />
+      </section>
+      <section className="l-section">
+        {/* <CurrentWeather /> */}
+      </section>
     </ div>
   );
 };

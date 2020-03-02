@@ -1,21 +1,19 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { LanguageContext } from '../../providers/LanguageProvider';
+import { LocationContext } from '../../providers/LocationProvider';
 import LocationDisplay from './LocationDisplay';
 import LocationInput from './LocationInput';
 import WarningDisplay from './WarningDisplay';
+import Spinner from '../shared/Spinner';
 import decodeLocation from './decodeLocation';
+import content from './locationContent';
+import { IGeolocationResponse } from '../../types';
 
-type GeolocationResponse = { coords: { latitude: number; longitude: number } };
-
-interface ILocationProps {
-  location: string;
-  dispatch: Function | null;
-}
-
-const Location: React.FC<ILocationProps> = ({ location, dispatch }) => {
+const LocationContainer: React.FC = () => {
+  const { language } = useContext(LanguageContext);
+  const { location, dispatch } = useContext(LocationContext);
   const [warning, setWarning] = useState('');
   const geolocationSupported = navigator && navigator.geolocation;
-  const {language} = useContext(LanguageContext);
 
   useEffect(() => {
     if (geolocationSupported && !location) {
@@ -29,7 +27,8 @@ const Location: React.FC<ILocationProps> = ({ location, dispatch }) => {
         }
       });
     }
-    async function success(position: GeolocationResponse) {
+
+    async function success(position: IGeolocationResponse) {
       const lat = position.coords.latitude.toString();
       const long = position.coords.longitude.toString();
       const location = (await decodeLocation(lat, long)) as string;
@@ -52,12 +51,16 @@ const Location: React.FC<ILocationProps> = ({ location, dispatch }) => {
   }
 
   return (
-    <section className="Location">
-      <LocationDisplay location={location} />
+    <>
+      {location ? (
+        <LocationDisplay location={location} />
+      ) : (
+          <Spinner message={content[language].spinnerMessage}/>
+      )}
       {warning && <WarningDisplay warning={warning} />}
       <LocationInput onLocationSearch={handleLocationSearch} />
-    </section>
+    </>
   );
 };
 
-export default Location;
+export default LocationContainer;

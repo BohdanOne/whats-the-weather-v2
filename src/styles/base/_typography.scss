@@ -19,7 +19,7 @@ h1 {
 }
 
 h2 {
-  @include font($fs, $fw-light);
+  @include font($fs, $fw-regular);
   text-align: left;
   color: $color-accent;
 

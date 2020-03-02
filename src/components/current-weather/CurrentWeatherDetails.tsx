@@ -30,10 +30,10 @@ const CurrentWeatherDetails: React.FC<ICurrentWeatherDetails> = ({
   } = language === 'en' ? content[0] : content[1];
 
   return (
-    <section className="CurrentWeatherDetails">
-      <h2 className="o-title--section">
+    <section className="l-section">
+      <h2 className="l-section__header">
         {title}
-        <span className="o-title__bold">{weather.name}</span>
+        <span className="l-section__header--bold">{weather.name}</span>
       </h2>
 
       <div className="CurrentWeatherDetails_basic">

@@ -1,11 +1,15 @@
 import React, { useReducer } from 'react';
 import languageReducer from '../reducers/languageReducer';
+enum Languages {
+  en = 'en',
+  pl = 'pl'
+}
 
-const DEFAULT_LANGUAGE = window.navigator.language.slice(0, 2) || 'en';
+const DEFAULT_LANGUAGE: Languages = window.navigator.language.slice(0, 2) as Languages || 'en';
 
 interface ILanguageContext {
-  language: string;
-  changeLanguage?: React.Dispatch<{type: string; payload: string}>
+  language: Languages;
+  changeLanguage?: React.Dispatch<{type: string; payload: Languages}>
 }
 export const LanguageContext = React.createContext<ILanguageContext>({language: DEFAULT_LANGUAGE});
 

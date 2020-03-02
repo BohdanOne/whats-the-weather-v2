@@ -1,0 +1,22 @@
+.l-section {
+  @include center;
+  max-width: 800px;
+  flex-direction: column;
+  margin: $gutter auto;
+  padding: 1rem 0;
+}
+
+.l-section__header {
+  margin-bottom: 1rem;
+  border: 1px solid green;
+}
+
+.l-section__header--bold {
+    display: block;
+}
+
+@media (min-width: $tablet) {
+  .l-section__header--bold {
+    display: inline-block;
+  }
+}

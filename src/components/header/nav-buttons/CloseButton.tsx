@@ -1,13 +1,13 @@
 import React from 'react';
+import { INavClickable } from '../../../types';
+import content from '../../../contents/headerContent';
 
-const CloseButton: React.FC<{ closeNav: () => void }> = ({
-  closeNav
-}) => {
+const CloseButton: React.FC<INavClickable> = ({ handleClick, language }) => {
   return (
     <button
       className='o-button o-button--nav'
-      onClick={closeNav}
-      aria-label='Close Navigation'
+      onClick={handleClick}
+      aria-label={`${content[language].button.close}`}
     >
       <svg
         viewBox='0 0 26 26'

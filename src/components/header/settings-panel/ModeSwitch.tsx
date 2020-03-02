@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { LanguageContext } from '../../../providers/LanguageProvider';
+import content from '../../../contents/headerContent';
 
 const ModeSwitch: React.FC = () => {
   const { language } = useContext(LanguageContext);
@@ -13,7 +14,7 @@ const ModeSwitch: React.FC = () => {
 
   return (
     <div className="c-nav__item">
-      <p>{language === 'en' ? 'choose mode' : 'wybierz tryb'}</p>
+      <p>{content[language].switch.mode}</p>
       <label htmlFor="light">
         <span role="img" aria-label="Sun">
           {' '}
