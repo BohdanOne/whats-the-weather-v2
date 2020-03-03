@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { LanguageContext } from '../../providers/LanguageProvider';
 import { LocationContext } from '../../providers/LocationProvider';
-import SectionHeader from '../layout/SectionHeader';
+import SectionHeader from '../shared/SectionHeader';
 import LocationInput from './LocationInput';
-import WarningDisplay from './WarningDisplay';
+import WarningDisplay from '../shared/WarningDisplay';
 import Spinner from '../shared/Spinner';
 import decodeLocation from '../../helpers/decodeLocation';
 import content from '../../contents/locationContent';

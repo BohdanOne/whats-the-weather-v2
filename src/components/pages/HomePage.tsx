@@ -1,7 +1,7 @@
 import React from 'react';
 
 import LocationContainer from '../location/LocationContainer';
-// import CurrentWeather from '../current-weather/CurrentWeather';
+import CurrentWeatherContainer from '../current-weather/CurrentWeatherContainer';
 
 export default () => {
   return (
@@ -10,7 +10,7 @@ export default () => {
         <LocationContainer />
       </section>
       <section className="l-section">
-        {/* <CurrentWeather /> */}
+        <CurrentWeatherContainer />
       </section>
     </ div>
   );

@@ -1,0 +1,41 @@
+.c-weather {
+  @include center();
+  justify-content: space-evenly;
+  width: 100%
+}
+
+.c-weather__icon {
+  background-color: $color-main-light;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.c-weather__details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 120px;
+}
+
+.c-weather__details > * {
+  margin-bottom: $gutter;
+}
+
+.c-weather__description {
+  font-weight: $fw-regular;
+  text-align: center;
+}
+
+.c-weather__temperature {
+  font-size: $fs-l;
+}
+
+.c-weather__full {
+  padding-top: 1rem 0;
+}
+
+.c-weather__item:last-of-type {
+  margin-bottom: $gutter;
+}
