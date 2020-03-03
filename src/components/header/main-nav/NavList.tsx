@@ -1,9 +1,9 @@
 import React from 'react';
-import { INavClickable } from '../../../types';
+import { INavWithLanguage } from '../../../types';
 import NavItem from './NavItem';
 import content from '../../../contents/headerContent';
 
-const NavList: React.FC<INavClickable> = ({ handleClick, language }) => {
+const NavList: React.FC<INavWithLanguage> = ({ handleClick, language }) => {
 
   return (
     <ul className='c-nav__list c-nav__list--nav' onClick={handleClick}>

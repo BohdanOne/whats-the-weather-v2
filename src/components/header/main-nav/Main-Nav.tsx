@@ -1,8 +1,10 @@
 import React, { useState, useContext } from 'react';
 import { LanguageContext } from '../../../providers/LanguageProvider';
-import NavToggle from '../nav-buttons/MainNavButton';
 import NavList from './NavList';
-import CloseButton from '../nav-buttons/CloseButton';
+import NavButton from '../nav-buttons/NavButton';
+import CloseIcon from '../nav-buttons/CloseIcon';
+import NavIcon from '../nav-buttons/NavIcon';
+import content from '../../../contents/headerContent';
 
 const Nav: React.FC = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -13,9 +15,19 @@ const Nav: React.FC = () => {
       className={`c-nav c-nav--main ${isExpanded ? 'c-nav--is-expanded' : ''}`}
     >
       {isExpanded ? (
-        <CloseButton handleClick={() => setIsExpanded(false)} language={language} />
+        <NavButton
+          handleClick={() => setIsExpanded(false)}
+          label={content[language].button.close}
+        >
+          <CloseIcon />
+        </NavButton>
       ) : (
-        <NavToggle handleClick={() => setIsExpanded(true)} language={language}/>
+        <NavButton
+          handleClick={() => setIsExpanded(true)}
+          label={content[language].button.nav}
+        >
+          <NavIcon />
+        </NavButton>
       )}
       <NavList handleClick={() => setIsExpanded(false)} language={language} />
     </nav>

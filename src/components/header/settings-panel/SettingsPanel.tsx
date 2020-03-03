@@ -1,8 +1,10 @@
 import React, { useState, useContext } from 'react';
 import { LanguageContext } from '../../../providers/LanguageProvider';
-import SettingsToggle from '../nav-buttons/SettingsButton';
 import SettingsList from './SettingsList';
-import CloseButton from '../nav-buttons/CloseButton';
+import NavButton from '../nav-buttons/NavButton';
+import SettingsIcon from '../nav-buttons/SettingsIcon';
+import CloseIcon from '../nav-buttons/CloseIcon';
+import content from '../../../contents/headerContent';
 
 const SettingsPanel: React.FC = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -15,9 +17,19 @@ const SettingsPanel: React.FC = () => {
       }`}
     >
       {isExpanded ? (
-        <CloseButton handleClick={() => setIsExpanded(false)} language={language} />
+        <NavButton
+          handleClick={() => setIsExpanded(false)}
+          label={content[language].button.close}
+        >
+          <CloseIcon />
+        </NavButton>
       ) : (
-        <SettingsToggle handleClick={() => setIsExpanded(true)} language={language}/>
+        <NavButton
+          handleClick={() => setIsExpanded(true)}
+          label={content[language].button.settings}
+        >
+          <SettingsIcon />
+        </NavButton>
       )}
       <SettingsList />
     </div>
