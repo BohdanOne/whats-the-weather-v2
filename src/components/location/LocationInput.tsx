@@ -1,32 +1,34 @@
-import React, { useRef, useContext } from 'react';
-import content from './locationInputContent';
-import { LanguageContext } from '../../providers/LanguageProvider';
+import React, { useRef } from 'react';
+import content from '../../contents/locationContent';
+import { ILocationInputProps } from '../../types';
 
-
-interface ILocationInputProps {
-  onLocationSearch: (location: string) => void;
-}
-
-const LocationInput: React.FC<ILocationInputProps> = ({onLocationSearch}) => {
+const LocationInput: React.FC<ILocationInputProps> = ({
+  locationSearch,
+  language
+}) => {
   const locationInputRef = useRef<HTMLInputElement>(null);
-  const {language} = useContext(LanguageContext);
-  const {label, buttonText} = language === 'en' ? content[0]: content[1];
+  const { label, buttonLabel, buttonText } = content[language].input;
 
   const searchLocation = (event: React.FormEvent) => {
     event.preventDefault();
     const location = locationInputRef.current!.value;
-    onLocationSearch(location);
-  }
+    locationSearch(location);
+  };
 
   return (
-    <form className="InputForm" onSubmit={searchLocation}>
-      <label className="InputForm_label" htmlFor="locationInput">
-        {label}
-      </label>
-      <input className="o-input" type="text" id="locationInput" ref={locationInputRef} />
-      <button className="o-button" type="submit" aria-label="Search for Location">{buttonText}</button>
+    <form className='o-form' onSubmit={searchLocation}>
+      <label htmlFor='locationInput'>{label}</label>
+      <input
+        className='o-input'
+        type='text'
+        id='locationInput'
+        ref={locationInputRef}
+      />
+      <button className='o-button' type='submit' aria-label={buttonLabel}>
+        {buttonText}
+      </button>
     </form>
-  )
+  );
 };
 
 export default LocationInput;

@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { LanguageContext } from '../../providers/LanguageProvider';
 import { LocationContext } from '../../providers/LocationProvider';
-import LocationDisplay from './LocationDisplay';
+import SectionHeader from '../layout/SectionHeader';
 import LocationInput from './LocationInput';
 import WarningDisplay from './WarningDisplay';
 import Spinner from '../shared/Spinner';
-import decodeLocation from './decodeLocation';
-import content from './locationContent';
+import decodeLocation from '../../helpers/decodeLocation';
+import content from '../../contents/locationContent';
 import { IGeolocationResponse } from '../../types';
 
 const LocationContainer: React.FC = () => {
@@ -17,32 +17,21 @@ const LocationContainer: React.FC = () => {
 
   useEffect(() => {
     if (geolocationSupported && !location) {
-      navigator.geolocation.getCurrentPosition(success, error => {
-        if (error) {
-          setWarning(
-            language === 'en'
-              ? 'Please allow access to your location or provide desired location manually.'
-              : 'Zezwól na dostęp do usługi lokalizacji lub wpisz lokalizację ręcznie.'
-          );
-        }
-      });
-    }
-
-    async function success(position: IGeolocationResponse) {
-      const lat = position.coords.latitude.toString();
-      const long = position.coords.longitude.toString();
-      const location = (await decodeLocation(lat, long)) as string;
-      dispatch && dispatch({ type: 'SET_LOCATION', payload: location });
+      navigator.geolocation.getCurrentPosition(
+        async (position: IGeolocationResponse) => {
+          const lat = position.coords.latitude.toString();
+          const long = position.coords.longitude.toString();
+          const location = (await decodeLocation(lat, long)) as string;
+          dispatch && dispatch({ type: 'SET_LOCATION', payload: location });
+        },
+        () => setWarning(content[language].warning.location)
+      );
     }
   });
 
   useEffect(() => {
     if (!location && !geolocationSupported) {
-      setWarning(
-        language === 'en'
-          ? 'Geolocation is not supported by your browser. Please provide desired location manually.'
-          : 'Geolokacja nie jest obsługiwana przez Twoją przeglądarkę. Wpisz lokalizację ręcznie.'
-      );
+      setWarning(content[language].warning.geolocation);
     }
   }, [location, geolocationSupported, language]);
 
@@ -53,12 +42,12 @@ const LocationContainer: React.FC = () => {
   return (
     <>
       {location ? (
-        <LocationDisplay location={location} />
+        <SectionHeader title={content[language].header.title} titleSpan={location} />
       ) : (
-          <Spinner message={content[language].spinnerMessage}/>
+        <Spinner message={content[language].spinner.message} />
       )}
       {warning && <WarningDisplay warning={warning} />}
-      <LocationInput onLocationSearch={handleLocationSearch} />
+      <LocationInput locationSearch={handleLocationSearch} language={language} />
     </>
   );
 };

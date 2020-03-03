@@ -1,7 +1,14 @@
 .o-input {
   @extend %box-reset;
   box-shadow: $box-shadow-inset;
-  width: 60%;
+  width: 80%;
   max-width: 300px;
+  margin: $gutter 0;
   color: inherit;
+}
+
+@media (min-width: $tablet) {
+  .o-input {
+    width: 60%;
+  }
 }
