@@ -1,63 +1,66 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { LanguageContext } from '../../../providers/LanguageProvider';
+import { ModeContext } from '../../../providers/ModeProvider';
 import content from '../../../contents/headerContent';
+import { Modes, TChangeMode } from '../../../types';
+
+const CHANGE_MODE: TChangeMode = 'CHANGE_MODE';
 
 const ModeSwitch: React.FC = () => {
   const { language } = useContext(LanguageContext);
+  const { mode, changeMode } = useContext(ModeContext);
 
-  const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const DEFAULT_MODE = isDark ? 'dark' : 'light';
-
-  useEffect(() => {
-    toggleMode(DEFAULT_MODE);
-  });
+  const toggleMode = (mode: Modes) => {
+    changeMode && changeMode({ type: CHANGE_MODE, payload: mode });
+    updateUI(mode);
+  };
 
   return (
-    <div className="c-nav__item">
+    <div className='c-nav__item'>
       <p>{content[language].switch.mode}</p>
-      <label htmlFor="light">
-        <span role="img" aria-label="Sun">
+      <label htmlFor='light'>
+        <span role='img' aria-label='Sun'>
           {' '}
           ☼{' '}
         </span>
       </label>
       <input
-        type="radio"
-        name="mode"
-        id="light"
-        value="light"
-        defaultChecked={DEFAULT_MODE === 'light'}
-        onChange={() => toggleMode('light')}
+        type='radio'
+        name='mode'
+        id='light'
+        value='light'
+        defaultChecked={mode === Modes.light}
+        onChange={() => toggleMode(Modes.light)}
       />
-      <label htmlFor="dark">
-        <span role="img" aria-label="Moon">
+      <label htmlFor='dark'>
+        <span role='img' aria-label='Moon'>
           {' '}
           ☾{' '}
         </span>
       </label>
       <input
-        type="radio"
-        name="mode"
-        id="dark"
-        value="dark"
-        defaultChecked={DEFAULT_MODE === 'dark'}
-        onChange={() => toggleMode('dark')}
+        type='radio'
+        name='mode'
+        id='dark'
+        value='dark'
+        defaultChecked={mode === Modes.dark}
+        onChange={() => toggleMode(Modes.dark)}
       />
     </div>
   );
 };
 
-const toggleMode = (mode: 'dark' | 'light') => {
+const updateUI = (mode: Modes) => {
   const rootStyle = document.documentElement.style;
-    if (mode === 'light') {
-      rootStyle.setProperty('--color-main', '#48484a');
-      rootStyle.setProperty('--color-main-light', 'rgba(72, 72, 74, 0.5)');
-      rootStyle.setProperty('--color-opposite', '#f2f2f1');
-    } else {
-      rootStyle.setProperty('--color-main', '#f2f2f1');
-      rootStyle.setProperty('--color-main-light', 'rgba(242, 242, 241, 0.5)');
-      rootStyle.setProperty('--color-opposite', '#48484a');
-    }
-}
+  if (mode === Modes.light) {
+    rootStyle.setProperty('--color-main', '#48484a');
+    rootStyle.setProperty('--color-main-light', 'rgba(72, 72, 74, 0.5)');
+    rootStyle.setProperty('--color-opposite', '#f2f2f1');
+  } else {
+    rootStyle.setProperty('--color-main', '#f2f2f1');
+    rootStyle.setProperty('--color-main-light', 'rgba(242, 242, 241, 0.5)');
+    rootStyle.setProperty('--color-opposite', '#48484a');
+  }
+};
 
 export default ModeSwitch;

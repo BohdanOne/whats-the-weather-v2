@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
 import { LanguageContext } from '../../../providers/LanguageProvider';
-import { Languages } from '../../../types';
+import { Languages, TChangeLanguage } from '../../../types';
 import content from '../../../contents/headerContent';
+
+const CHANGE_LANGUAGE: TChangeLanguage = 'CHANGE_LANGUAGE'
 
 const LanguageSwitch: React.FC = () => {
   const { language, changeLanguage } = useContext(LanguageContext);
@@ -20,9 +22,9 @@ const LanguageSwitch: React.FC = () => {
         name='language'
         id='en'
         value='en'
-        checked={language === 'en'}
+        checked={language === Languages.en}
         onChange={() => {
-          changeLanguage!({ type: 'CHANGE_LANGUAGE', payload: Languages.en });
+          changeLanguage!({ type: CHANGE_LANGUAGE, payload: Languages.en });
         }}
       />
       <label htmlFor='pl'>
@@ -36,9 +38,9 @@ const LanguageSwitch: React.FC = () => {
         name='language'
         id='pl'
         value='pl'
-        checked={language === 'pl'}
+        checked={language === Languages.pl}
         onChange={() => {
-          changeLanguage!({ type: 'CHANGE_LANGUAGE', payload: Languages.pl });
+          changeLanguage!({ type: CHANGE_LANGUAGE, payload: Languages.pl });
         }}
       />
     </div>

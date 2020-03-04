@@ -7,6 +7,11 @@ export enum Languages {
   pl = 'pl'
 }
 
+export enum Modes {
+  light = 'light',
+  dark = 'dark'
+}
+
 export interface ILocationState {
   location: string;
   dispatch: React.Dispatch<ILocationAction> | null;
@@ -17,8 +22,20 @@ export interface ILocationAction {
   payload: string;
 }
 
+export interface IModeState {
+  mode: Modes;
+  dispatch: React.Dispatch<IModeAction> | null;
+}
+
+export interface IModeAction {
+  type: TChangeMode;
+  payload: Modes;
+}
+
 // Action types
 export type TChangeLanguage = 'CHANGE_LANGUAGE';
+
+export type TChangeMode = 'CHANGE_MODE';
 
 export type TSetLocation = 'SET_LOCATION';
 
@@ -27,7 +44,12 @@ export type TSetLocation = 'SET_LOCATION';
 ******************************************************************************/
 export interface ILanguageContext {
   language: Languages;
-  changeLanguage?: React.Dispatch<{type: string; payload: Languages}>
+  changeLanguage?: React.Dispatch<{type: TChangeLanguage; payload: Languages}>
+}
+
+export interface IModeContext {
+  mode: Modes;
+  changeMode: React.Dispatch<{type: TChangeMode; payload: Modes}> | null
 }
 
 export interface ILocationContext {
@@ -69,7 +91,6 @@ export interface ICurrentWeatherResponse {
   rain?: { '1h'?: number }; // mm
   snow?: { '1h'?: number }; // mm
 };
-
 
 
 /* Types for nav components

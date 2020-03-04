@@ -4,7 +4,7 @@ const CHANGE_LANGUAGE: TChangeLanguage = 'CHANGE_LANGUAGE';
 
 export default (
   language: Languages,
-  action: { type: string; payload: Languages }
+  action: { type: TChangeLanguage; payload: Languages }
 ): Languages => {
   switch (action.type) {
     case CHANGE_LANGUAGE:
