@@ -1,18 +1,23 @@
 import React, { useReducer } from 'react';
-import { locationReducer, IState, IAction, initialState } from '../reducers/locationReducer';
+import { locationReducer, initialState } from '../reducers/locationReducer';
+import { ILocationState, ILocationAction, ILocationContext } from '../types';
 
-interface ILocation {
-  location: string;
-  dispatch: React.Dispatch<IAction> | null;
-}
+export const LocationContext = React.createContext<ILocationContext>({
+  location: '',
+  dispatch: null
+});
 
-export const LocationContext = React.createContext<ILocation>({ location: '', dispatch: null });
-
-export const LocationProvider: React.FC<{children: React.ReactElement}> = ({ children }) => {
-  const [location, dispatchLocation] = useReducer<React.Reducer<IState, IAction>>(locationReducer, initialState);
+export const LocationProvider: React.FC<{ children: React.ReactElement }> = ({
+  children
+}) => {
+  const [location, dispatchLocation] = useReducer<
+    React.Reducer<ILocationState, ILocationAction>
+  >(locationReducer, initialState);
 
   return (
-    <LocationContext.Provider value={{ location: location.location, dispatch: dispatchLocation }}>
+    <LocationContext.Provider
+      value={{ location: location.location, dispatch: dispatchLocation }}
+    >
       {children}
     </LocationContext.Provider>
   );

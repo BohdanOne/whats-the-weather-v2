@@ -1,23 +1,15 @@
 import React from 'react';
+import { ILocationState, ILocationAction, TSetLocation } from '../types';
 
-export interface IState {
-  location: string;
-  dispatch: React.Dispatch<IAction> | null;
-}
-
-export interface IAction {
-  type: 'SET_LOCATION';
-  payload: string;
-}
-
-export const initialState: IState = {
+const SET_LOCATION: TSetLocation = 'SET_LOCATION';
+export const initialState: ILocationState = {
   location: '',
   dispatch: null
 }
 
-export const locationReducer: React.Reducer<IState, IAction> = (state, action) => {
+export const locationReducer: React.Reducer<ILocationState, ILocationAction> = (state, action) => {
   switch (action.type) {
-    case 'SET_LOCATION':
+    case SET_LOCATION:
       return { ...state, location: action.payload };
     default:
       return state;

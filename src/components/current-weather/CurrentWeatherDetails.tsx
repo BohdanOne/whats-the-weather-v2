@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { ICurrentWeatherDetails } from '../../types';
+import { ICurrentWeatherDetailsProps } from '../../types';
 import content from '../../contents/currentWeatherContent';
 import windDirection from '../../helpers/windDirection';
 
-const CurrentWeatherDetails: React.FC<ICurrentWeatherDetails> = ({
+const CurrentWeatherDetails: React.FC<ICurrentWeatherDetailsProps> = ({
   weather,
   language
 }) => {
