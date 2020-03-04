@@ -1,30 +1,30 @@
 {
   "files": {
-    "main.css": "/whats-the-weather-v2/static/css/main.7241d964.chunk.css",
-    "main.js": "/whats-the-weather-v2/static/js/main.a2c36fbf.chunk.js",
-    "main.js.map": "/whats-the-weather-v2/static/js/main.a2c36fbf.chunk.js.map",
-    "runtime-main.js": "/whats-the-weather-v2/static/js/runtime-main.99ee5551.js",
-    "runtime-main.js.map": "/whats-the-weather-v2/static/js/runtime-main.99ee5551.js.map",
-    "static/js/2.fb227d88.chunk.js": "/whats-the-weather-v2/static/js/2.fb227d88.chunk.js",
-    "static/js/2.fb227d88.chunk.js.map": "/whats-the-weather-v2/static/js/2.fb227d88.chunk.js.map",
-    "static/js/3.becee97c.chunk.js": "/whats-the-weather-v2/static/js/3.becee97c.chunk.js",
-    "static/js/3.becee97c.chunk.js.map": "/whats-the-weather-v2/static/js/3.becee97c.chunk.js.map",
-    "static/js/4.b468b4a6.chunk.js": "/whats-the-weather-v2/static/js/4.b468b4a6.chunk.js",
-    "static/js/4.b468b4a6.chunk.js.map": "/whats-the-weather-v2/static/js/4.b468b4a6.chunk.js.map",
-    "static/js/5.b3967b72.chunk.js": "/whats-the-weather-v2/static/js/5.b3967b72.chunk.js",
-    "static/js/5.b3967b72.chunk.js.map": "/whats-the-weather-v2/static/js/5.b3967b72.chunk.js.map",
-    "static/js/6.0f0bd575.chunk.js": "/whats-the-weather-v2/static/js/6.0f0bd575.chunk.js",
-    "static/js/6.0f0bd575.chunk.js.map": "/whats-the-weather-v2/static/js/6.0f0bd575.chunk.js.map",
+    "main.css": "/whats-the-weather-v2/static/css/main.4cb616ee.chunk.css",
+    "main.js": "/whats-the-weather-v2/static/js/main.122a8e62.chunk.js",
+    "main.js.map": "/whats-the-weather-v2/static/js/main.122a8e62.chunk.js.map",
+    "runtime-main.js": "/whats-the-weather-v2/static/js/runtime-main.ffcf9d20.js",
+    "runtime-main.js.map": "/whats-the-weather-v2/static/js/runtime-main.ffcf9d20.js.map",
+    "static/js/2.27d67082.chunk.js": "/whats-the-weather-v2/static/js/2.27d67082.chunk.js",
+    "static/js/2.27d67082.chunk.js.map": "/whats-the-weather-v2/static/js/2.27d67082.chunk.js.map",
+    "static/js/3.085f41e0.chunk.js": "/whats-the-weather-v2/static/js/3.085f41e0.chunk.js",
+    "static/js/3.085f41e0.chunk.js.map": "/whats-the-weather-v2/static/js/3.085f41e0.chunk.js.map",
+    "static/js/4.6343bd79.chunk.js": "/whats-the-weather-v2/static/js/4.6343bd79.chunk.js",
+    "static/js/4.6343bd79.chunk.js.map": "/whats-the-weather-v2/static/js/4.6343bd79.chunk.js.map",
+    "static/js/5.58374b9f.chunk.js": "/whats-the-weather-v2/static/js/5.58374b9f.chunk.js",
+    "static/js/5.58374b9f.chunk.js.map": "/whats-the-weather-v2/static/js/5.58374b9f.chunk.js.map",
+    "static/js/6.5408af13.chunk.js": "/whats-the-weather-v2/static/js/6.5408af13.chunk.js",
+    "static/js/6.5408af13.chunk.js.map": "/whats-the-weather-v2/static/js/6.5408af13.chunk.js.map",
     "index.html": "/whats-the-weather-v2/index.html",
-    "precache-manifest.1ae1dd917be2ef12dce6189f34a72ec7.js": "/whats-the-weather-v2/precache-manifest.1ae1dd917be2ef12dce6189f34a72ec7.js",
+    "precache-manifest.ebbba96b72755fef94cba8f7b2a7603f.js": "/whats-the-weather-v2/precache-manifest.ebbba96b72755fef94cba8f7b2a7603f.js",
     "service-worker.js": "/whats-the-weather-v2/service-worker.js",
-    "static/css/main.7241d964.chunk.css.map": "/whats-the-weather-v2/static/css/main.7241d964.chunk.css.map",
-    "static/js/3.becee97c.chunk.js.LICENSE.txt": "/whats-the-weather-v2/static/js/3.becee97c.chunk.js.LICENSE.txt"
+    "static/css/main.4cb616ee.chunk.css.map": "/whats-the-weather-v2/static/css/main.4cb616ee.chunk.css.map",
+    "static/js/3.085f41e0.chunk.js.LICENSE.txt": "/whats-the-weather-v2/static/js/3.085f41e0.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.99ee5551.js",
-    "static/js/3.becee97c.chunk.js",
-    "static/css/main.7241d964.chunk.css",
-    "static/js/main.a2c36fbf.chunk.js"
+    "static/js/runtime-main.ffcf9d20.js",
+    "static/js/3.085f41e0.chunk.js",
+    "static/css/main.4cb616ee.chunk.css",
+    "static/js/main.122a8e62.chunk.js"
   ]
 }

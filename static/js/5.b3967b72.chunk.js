@@ -1,2 +1,0 @@
-(this["webpackJsonpwtw-v2"]=this["webpackJsonpwtw-v2"]||[]).push([[5],{35:function(e,t,n){"use strict";var a=n(0),r=n.n(a);t.a=function(e){var t=e.title;return r.a.createElement("header",null,r.a.createElement("h1",null,t))}},65:function(e,t,n){"use strict";n.r(t);var a=n(0),r=n.n(a),l=n(35);t.default=function(){return r.a.createElement(r.a.Fragment,null,r.a.createElement(l.a,{title:"forecasts"}),r.a.createElement("p",null,"Page not ready yet..."),r.a.createElement("p",null,"Come back soon!"))}}}]);
-//# sourceMappingURL=5.b3967b72.chunk.js.map

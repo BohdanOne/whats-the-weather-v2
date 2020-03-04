@@ -1,0 +1,2 @@
+(this["webpackJsonpwtw-v2"]=this["webpackJsonpwtw-v2"]||[]).push([[4],{65:function(e,t,a){"use strict";a.r(t);var n=a(0),c=a.n(n);t.default=function(){return c.a.createElement("div",{className:"l-page"},c.a.createElement("p",null,"Page not ready yet..."),c.a.createElement("p",null,"Come back soon!"))}}}]);
+//# sourceMappingURL=4.6343bd79.chunk.js.map
