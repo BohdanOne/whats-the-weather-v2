@@ -19,7 +19,7 @@ const ModeSwitch: React.FC = () => {
     <div className='c-nav__item'>
       <p>{content[language].switch.mode}</p>
       <label htmlFor='light'>
-        <span role='img' aria-label='Sun'>
+        <span role='img' aria-label={content[language].switch.light}>
           {' '}
           ☼{' '}
         </span>
@@ -33,7 +33,7 @@ const ModeSwitch: React.FC = () => {
         onChange={() => toggleMode(Modes.light)}
       />
       <label htmlFor='dark'>
-        <span role='img' aria-label='Moon'>
+        <span role='img' aria-label={content[language].switch.dark}>
           {' '}
           ☾{' '}
         </span>

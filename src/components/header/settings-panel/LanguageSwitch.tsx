@@ -12,7 +12,7 @@ const LanguageSwitch: React.FC = () => {
     <div className='c-nav__item'>
       <p>{content[language].switch.language}</p>
       <label htmlFor='en'>
-        <span role='img' aria-label='Flag: United Kingdom'>
+        <span role='img' aria-label='English'>
           {' '}
           🇬🇧{' '}
         </span>
@@ -28,7 +28,7 @@ const LanguageSwitch: React.FC = () => {
         }}
       />
       <label htmlFor='pl'>
-        <span role='img' aria-label='Flag: Poland'>
+        <span role='img' aria-label='Język polski'>
           {' '}
           🇵🇱{' '}
         </span>

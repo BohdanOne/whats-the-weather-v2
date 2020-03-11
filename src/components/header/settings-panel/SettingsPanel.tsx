@@ -11,7 +11,7 @@ const SettingsPanel: React.FC = () => {
   const { language } = useContext(LanguageContext);
 
   return (
-    <div
+    <aside
       className={`c-nav c-nav--settings ${
         isExpanded ? 'c-nav--is-expanded' : ''
       }`}
@@ -32,7 +32,7 @@ const SettingsPanel: React.FC = () => {
         </NavButton>
       )}
       <SettingsList />
-    </div>
+    </aside>
   );
 };
 

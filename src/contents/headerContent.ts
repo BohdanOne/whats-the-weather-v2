@@ -11,7 +11,9 @@ export default {
     },
     switch: {
       language: 'zmień język',
-      mode: 'zmień tryb'
+      mode: 'zmień tryb',
+      light: 'tryb jasny',
+      dark: 'tryb ciemny'
     }
   },
   en: {
@@ -26,7 +28,9 @@ export default {
     },
     switch: {
       language: 'change language',
-      mode: 'change mode'
+      mode: 'change mode',
+      light: 'light mode',
+      dark: 'dark mode'
     }
   }
 }
