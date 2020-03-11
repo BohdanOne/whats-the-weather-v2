@@ -24,13 +24,13 @@ const CurrentWeatherContainer: React.FC = () => {
         .then(response => response.data)
         .then((data: ICurrentWeatherResponse) => {
           setWeather(data);
+          warning && setWarning('');
         })
         .catch(e => {
-          console.log(e);
           setWarning(content[language].warning);
         });
     }
-  }, [location, language]);
+  }, [location, language, warning]);
 
   return (
     <>
