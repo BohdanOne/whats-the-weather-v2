@@ -12,7 +12,9 @@ const Pages: React.FC = () => {
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route path='/forecasts' component={ForecastsPage} />
+          <Route path='/prognozy' component={ForecastsPage} />
           <Route path='/about' component={AboutPage} />
+          <Route path='/info' component={AboutPage} />
         </Switch>
     </Suspense>
   );
