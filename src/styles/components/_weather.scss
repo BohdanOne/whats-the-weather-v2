@@ -4,6 +4,10 @@
   width: 100%
 }
 
+.c-weather--forecast {
+  flex-wrap: wrap;
+}
+
 .c-weather__icon {
   background-color: $color-main-light;
   width: 100px;
@@ -19,8 +23,17 @@
   min-height: 120px;
 }
 
+.c-weather__details--forecast {
+  margin: $gutter * 3 $gutter * 2;
+  min-width: 200px;
+}
+
 .c-weather__details > * {
   margin-bottom: $gutter;
+}
+
+.c-weather__date {
+  text-align: center;
 }
 
 .c-weather__description {

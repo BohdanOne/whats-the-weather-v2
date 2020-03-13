@@ -7,12 +7,12 @@ import SectionHeader from '../shared/SectionHeader';
 import WarningDisplay from '../shared/WarningDisplay';
 import CurrentWeatherDetails from './CurrentWeatherDetails';
 import content from '../../contents/currentWeatherContent';
-import { ICurrentWeatherResponse } from '../../types';
+import { IWeather } from '../../types';
 
-const API_URL = 'https://wtw-api.herokuapp.com/weather/current';
+const API_URL = 'https://wtw-api.herokuapp.com/weather/';
 
 const CurrentWeatherContainer: React.FC = () => {
-  const [weather, setWeather] = useState<ICurrentWeatherResponse>();
+  const [weather, setWeather] = useState<IWeather>();
   const [warning, setWarning] = useState('');
   const { language } = useContext(LanguageContext);
   const { location } = useContext(LocationContext);
@@ -22,7 +22,7 @@ const CurrentWeatherContainer: React.FC = () => {
       axios
         .post(API_URL, { location, language })
         .then(response => response.data)
-        .then((data: ICurrentWeatherResponse) => {
+        .then((data: IWeather) => {
           setWeather(data);
           warning && setWarning('');
         })

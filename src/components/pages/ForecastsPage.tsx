@@ -1,10 +1,13 @@
 import React from 'react';
+import ForecastContainer from '../forecast/ForecastContainer';
+
 
 const ForecastsPage: React.FC = () => {
   return (
     <div className='l-page'>
-      <p>Page not ready yet...</p>
-      <p>Come back soon!</p>
+      <section className="l-section l-section--forecast">
+        <ForecastContainer />
+      </section>
     </div>
   );
 };

@@ -67,31 +67,22 @@ export interface IGeolocationResponse {
   };
 }
 
-export interface ICurrentWeatherResponse {
-  name: string;
-  weather: {
-    main: string;
-    description: string;
-    icon: string;
-  }[];
-  main: {
-    temp: number;
-    feels_like: number;
-    temp_min?: number;
-    temp_max?: number;
-    pressure: number; // hPa
-    humidity: number; // %
-  };
-  visibility?: number;
-  wind?: {
-    speed?: number; // m/s
-    deg?: number;
-  };
-  clouds?: { all?: number }; // %
-  rain?: { '1h'?: number }; // mm
-  snow?: { '1h'?: number }; // mm
-};
+export interface IWeather {
+  icon: string;
+  description: string;
+  temp: string;
+  feelsLike: string;
+  pressure: string;
+  humidity: string;
+  precipitation: string;
+  wind: string;
+  clouds: string;
+}
 
+export interface IForecast extends IWeather{
+  day: string;
+  date: string;
+}
 
 /* Types for nav components
 ******************************************************************************/
@@ -112,7 +103,12 @@ export interface INavButton extends INavClickable {
 /* Types for main components props
 ******************************************************************************/
 export interface ICurrentWeatherDetailsProps {
-  weather: ICurrentWeatherResponse;
+  weather: IWeather;
+  language: Languages;
+}
+
+export interface IForecastDetailsProps {
+  weather: [IForecast];
   language: Languages;
 }
 

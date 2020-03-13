@@ -11,12 +11,10 @@ export default {
     },
     warning: 'Informacje niedostępne',
     weather: {
-      rain: 'deszcz',
-      snow: 'śnieg',
+      precipitation: 'opad',
       feelsLike: 'odczuwalne',
       pressure: 'ciśnienie',
       humidity: 'wilgotność',
-      visibility: 'widoczność',
       wind: 'wiatr',
       clouds: 'zachmurzenie'
     },
@@ -38,12 +36,10 @@ export default {
     },
     warning: 'Weather not available',
     weather: {
-      rain: 'rain',
-      snow: 'snow',
+      precipitation: 'precipitation',
       feelsLike: 'feels like',
       pressure: 'pressure',
       humidity: 'humidity',
-      visibility: 'visibility',
       wind: 'wind',
       clouds: 'clouds'
     },
