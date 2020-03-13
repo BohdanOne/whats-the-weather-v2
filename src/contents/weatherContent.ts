@@ -2,16 +2,21 @@ export default {
   pl: {
     spinner: {
       message: {
+        noForecast: 'Sprawdzam prognozy dla ',
         noLocation: 'Czekam na lokalizację...',
         noWeather: 'Sprawdzam pogodę w '
       }
     },
     header: {
-      title: 'aktualna pogoda w'
+      title: {
+        forecast: 'prognozy dla',
+        current: 'aktualna pogoda w'
+      }
     },
     warning: 'Informacje niedostępne',
     weather: {
       precipitation: 'opad',
+      temperature: 'temperatura',
       feelsLike: 'odczuwalne',
       pressure: 'ciśnienie',
       humidity: 'wilgotność',
@@ -27,16 +32,21 @@ export default {
   en: {
     spinner: {
       message: {
+        noForecast: 'Checking forecast for ',
         noLocation: 'Waiting for location...',
         noWeather: 'Checking weather in  '
       }
     },
     header: {
-      title: 'current weather in'
+      title: {
+        forecast: 'forecast for',
+        current: 'current weather in'
+      }
     },
     warning: 'Weather not available',
     weather: {
       precipitation: 'precipitation',
+      temperature: 'temperature',
       feelsLike: 'feels like',
       pressure: 'pressure',
       humidity: 'humidity',
@@ -49,4 +59,4 @@ export default {
       lessDetails: 'hide details'
     }
   }
-}
+};

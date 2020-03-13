@@ -1,6 +1,6 @@
 import React from 'react';
 import { IForecastDetailsProps } from '../../types';
-import content from '../../contents/currentWeatherContent';
+import content from '../../contents/weatherContent';
 
 const ForecastDetails: React.FC<IForecastDetailsProps> = ({
   weather,

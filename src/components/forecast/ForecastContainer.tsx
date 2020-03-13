@@ -7,7 +7,7 @@ import Spinner from '../shared/Spinner';
 import SectionHeader from '../shared/SectionHeader';
 import WarningDisplay from '../shared/WarningDisplay';
 import ForecastDetails from './ForecastDetails';
-import content from '../../contents/forecastContent';
+import content from '../../contents/weatherContent';
 import { IForecast } from '../../types';
 
 const API_URL = 'https://wtw-api.herokuapp.com/forecast/';
@@ -37,7 +37,7 @@ const ForecastContainer: React.FC = () => {
     location ? (
       <>
         <SectionHeader
-          title={content[language].header.title}
+          title={content[language].header.title.forecast}
           titleSpan={location}
         />
         {warning ? (
@@ -51,7 +51,7 @@ const ForecastContainer: React.FC = () => {
               )}
               {weather && (
                 <ForecastDetails weather={weather} language={language} />
-              )}{' '}
+              )}
             </>
           )}
       </>) :
