@@ -1,0 +1,53 @@
+.c-switch + .c-switch{
+  margin-left: $gutter;
+}
+
+.c-switch__name {
+  text-align: center;
+}
+
+.c-switch__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.c-switch__input {
+  opacity: 0;
+}
+
+.c-switch__input:focus + .c-switch__label {
+  outline: auto;
+}
+
+.c-switch__input:checked + .c-switch__label .c-switch__icon {
+  fill: $color-accent;
+  transform: scale(1.5);
+}
+
+.c-switch__input:checked + .c-switch__label .c-switch__flag {
+  font-size: 1.5rem;
+}
+
+.c-switch__label {
+  position: relative;
+  left: -12px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: fit-content;
+}
+
+.c-switch__label:hover {
+  cursor: pointer;
+}
+
+.c-switch__icon {
+  width: 1.5rem;
+  fill: $color-main;
+  transition: transform $time;
+}
+
+.c-switch__flag {
+  font-size: 1rem;
+}

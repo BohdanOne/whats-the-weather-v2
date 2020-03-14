@@ -5,8 +5,8 @@ import ModeSwitch from './ModeSwitch';
 const SettingsList: React.FC = () => {
   return (
     <nav className='c-nav__list c-nav__list--settings'>
-      <LanguageSwitch />
       <ModeSwitch />
+      <LanguageSwitch />
     </nav>
   );
 };
