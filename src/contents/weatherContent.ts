@@ -9,8 +9,8 @@ export default {
     },
     header: {
       title: {
-        forecast: 'prognozy dla',
-        current: 'aktualna pogoda w'
+        forecast: 'prognozy dla: ',
+        current: 'aktualna pogoda w: '
       }
     },
     warning: 'Informacje niedostępne',
@@ -39,8 +39,8 @@ export default {
     },
     header: {
       title: {
-        forecast: 'forecast for',
-        current: 'current weather in'
+        forecast: 'forecast for: ',
+        current: 'current weather in: '
       }
     },
     warning: 'Weather not available',

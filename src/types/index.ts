@@ -121,3 +121,7 @@ export interface ILocationInputProps {
   locationSearch: (location: string) => void;
   language: Languages;
 }
+
+export interface IAboutDetailsProps {
+  language: Languages;
+}

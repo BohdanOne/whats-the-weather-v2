@@ -1,0 +1,10 @@
+.c-about__text {
+  align-self: flex-start;
+  margin-bottom: $gutter * 2;
+}
+
+.c-about__link {
+  display: block;
+  text-decoration: underline;
+  margin: $gutter 0;
+}

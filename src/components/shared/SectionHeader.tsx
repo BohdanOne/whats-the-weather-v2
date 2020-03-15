@@ -7,7 +7,7 @@ const SectionHeader: React.FC<ISectionHeaderProps> = ({
 }) => {
   return (
     <h2 className='l-section__header'>
-      {title}:{' '}
+      {title}
       <span className='l-section__header--bold'>{titleSpan}</span>
     </h2>
   );

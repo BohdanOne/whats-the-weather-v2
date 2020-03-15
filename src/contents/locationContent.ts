@@ -4,7 +4,7 @@ export default {
       message: 'Czekam na lokalizację...'
     },
     header: {
-      title: 'lokalizacja'
+      title: 'lokalizacja '
     },
     input: {
       label: 'wpisz lokalizację: ',
@@ -21,7 +21,7 @@ export default {
       message: 'Waiting for your location...'
     },
     header: {
-      title: 'location'
+      title: 'location '
     },
     input: {
       label: 'enter location: ',
